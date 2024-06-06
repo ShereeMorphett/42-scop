@@ -1,36 +1,73 @@
-# This is a basic workflow to help you get started with Actions
+name: ci
 
-name: CI
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    paths:
+      - "**.hpp"
+      - "**.cpp"
+      - "**/meson.build"
+      - "**/ci.yml"
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+    clang_version: "15"
+    gcc_version: "12"
+
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  linux:
+    strategy:
+      matrix:
+        compilers:
+          - "clang"
+          - "gcc"
+        linker:
+          - "lld"
+        type:
+          - "debug"
+          - "release"
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    runs-on : ubuntu-latest
+
+    defaults:
+        run:
+          shell: bash
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    - name: Install base dependencies
+      run: |
+          sudo apt -y update
+          sudo apt -y install --no-install-recommends git python3 python3-pip ninja-build libstdc++-${{ env.gcc_version }}-dev
+          sudo -H pip3 install --no-cache-dir --upgrade meson
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - name: Install lld
+      if: ${{ startsWith(matrix.linker, 'lld')  }}
+      run: |
+          sudo apt -y install --no-install-recommends lld-${{ env.clang_version }}
+          sudo update-alternatives --install /usr/bin/ld.lld ld.lld /usr/bin/ld.lld-${{ env.clang_version }} 1000
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    - name: Install clang
+      if: ${{ startsWith(matrix.compiler, 'clang')  }}
+      run: |
+          sudo apt -y install --no-install-recommends clang-${{ env.clang_version }}
+          sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-${{ env.clang_version }} 1000
+          sudo update-alternatives --install /usr/bin/cc cc /usr/bin/clang-${{ env.clang_version }} 1000
+
+    - name: Install gcc
+      if: ${{ startsWith(matrix.compiler, 'gcc') }}
+      run: |
+          sudo apt -y install --no-install-recommends gcc-${{ env.gcc_version }} g++-${{ env.gcc_version }}
+          sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++-${{ env.gcc_version }} 1000
+          sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc-${{ env.gcc_version }} 1000
+
+    - uses: actions/checkout@v3
+      with:
+          submodules: true
+
+    - name: Configure Meson
+      run: |
+          CC=cc CXX=c++ CXX_LD=${{ matrix.linker }} meson setup build --buildtype=${{ matrix.type }}
+
+    - name: Build
+      run: meson compile -C build --jobs -1
+
+    - name: Test
+      run: meson test -C build --verbose
