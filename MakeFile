@@ -1,45 +1,73 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    MakeFile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: smorphet <smorphet@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 08:53:50 by smorphet          #+#    #+#              #
-#    Updated: 2023/09/18 09:12:30 by smorphet         ###   ########.fr        #
+#    Updated: 2024/06/07 14:35:51 by smorphet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scop
+NAME	:= scop
 
-SRC	= apps/main.cpp
-OBJ	= $(SRC:.cpp=.o)
-INC = 
+# directories
+SRC_DIR	:= ./apps
+LIB_DIR	:= ./libs
+INC_DIR	:= ./include
+OBJ_DIR	:= ./obj
+BIN_DIR	:= ./bin
 
-CC		= c++
-FLAGS	= -Wall -Wextra -Werror -pedantic
-INCLUDES = -I./ -I/minilibx_opengl
-LIBS = -L/minilibx_opengl-lGL -lGLEW -lglfw
+# src / obj files
+SRC		:=	main.cpp
 
+OBJ		:= $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
 
-all: $(NAME)
+# compiler
+CC		:= c++
+CFLAGS	:= -Wall -Wextra -Werror
+CFLAGS	+= -O3 -march=native -pipe
 
-$(OBJ): $(SRC) $(INC)
-	$(CC) -c $(FLAGS) $(INCLUDES) $(SRC)
+# libraries
+L_GLFW	:= $(LIB_DIR)/glfw-3.4
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(LIBS)
-	@echo "\033[0;92m* $(NAME) was created *\033[0m"
+include $(LIB_DIR)/glfw.mk
+
+# rules
+all:
+	cd $(L_GLFW) && cmake .
+	@$(MAKE) -C $(L_GLFW) glfw --no-print-directory
+	@$(MAKE) $(NAME) --no-print-directory
+	@echo "[scop] 🎉"
+	
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp
+	$(CC) $(CFLAGS) -I $(INC_DIR) $(LIB_INC) -o $@ -c $<
+
+$(NAME): $(OBJ_DIR) $(OBJ)
+	$(CC) $(OBJ) $(LIB_LNK) -o $(BIN_DIR)/$(NAME)
 
 clean:
-	rm -rf $(OBJ)
-	@echo "\033[0;91m* $(NAME) .o files were deleted *\033[0m"
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
-	@echo "\033[0;91m* $(NAME) was deleted *\033[0m"
+	rm -f $(NAME)
 
-re: fclean all
+re:
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) all --no-print-directory
 
-.PHONY: all clean fclean re
-.SILENT:
+relibs:
+	@$(MAKE) -C $(L_GLFW) clean --no-print-directory
+	@$(MAKE) -C $(L_GLFW) glfw --no-print-directory
+	@$(MAKE) fclean --no-print-directory
+	@$(MAKE) all --no-print-directory
+
+cleanlibs:
+	@$(MAKE) -C $(L_GLFW) clean --no-print-directory
+
+# special rules
+.PHONY: all clean fclean re relibs
