@@ -6,7 +6,7 @@
 #    By: smorphet <smorphet@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/18 08:53:50 by smorphet          #+#    #+#              #
-#    Updated: 2024/06/07 14:35:51 by smorphet         ###   ########.fr        #
+#    Updated: 2024/06/07 14:58:37 by smorphet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BIN_DIR)/$(NAME)
 
 re:
 	@$(MAKE) fclean --no-print-directory
