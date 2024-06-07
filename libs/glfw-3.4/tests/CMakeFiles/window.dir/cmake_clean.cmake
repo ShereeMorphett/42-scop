@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/window.dir/window.c.o"
   "CMakeFiles/window.dir/window.c.o.d"
-  "window.app/Contents/MacOS/window"
+  "window"
   "window.pdb"
 )
 

@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c" "tests/CMakeFiles/events.dir/__/deps/getopt.c.o" "gcc" "tests/CMakeFiles/events.dir/__/deps/getopt.c.o.d"
-  "/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/events.c" "tests/CMakeFiles/events.dir/events.c.o" "gcc" "tests/CMakeFiles/events.dir/events.c.o.d"
+  "/home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c" "tests/CMakeFiles/events.dir/__/deps/getopt.c.o" "gcc" "tests/CMakeFiles/events.dir/__/deps/getopt.c.o.d"
+  "/home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/events.c" "tests/CMakeFiles/events.dir/events.c.o" "gcc" "tests/CMakeFiles/events.dir/events.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

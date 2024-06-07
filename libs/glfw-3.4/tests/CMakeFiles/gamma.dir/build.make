@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/gamma.dir/depend.make
@@ -72,16 +72,16 @@ include tests/CMakeFiles/gamma.dir/flags.make
 tests/CMakeFiles/gamma.dir/gamma.c.o: tests/CMakeFiles/gamma.dir/flags.make
 tests/CMakeFiles/gamma.dir/gamma.c.o: tests/gamma.c
 tests/CMakeFiles/gamma.dir/gamma.c.o: tests/CMakeFiles/gamma.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/gamma.dir/gamma.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/gamma.dir/gamma.c.o -MF CMakeFiles/gamma.dir/gamma.c.o.d -o CMakeFiles/gamma.dir/gamma.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/gamma.dir/gamma.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/gamma.dir/gamma.c.o -MF CMakeFiles/gamma.dir/gamma.c.o.d -o CMakeFiles/gamma.dir/gamma.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c
 
 tests/CMakeFiles/gamma.dir/gamma.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/gamma.dir/gamma.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c > CMakeFiles/gamma.dir/gamma.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c > CMakeFiles/gamma.dir/gamma.c.i
 
 tests/CMakeFiles/gamma.dir/gamma.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/gamma.dir/gamma.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c -o CMakeFiles/gamma.dir/gamma.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c -o CMakeFiles/gamma.dir/gamma.c.s
 
 # Object files for target gamma
 gamma_OBJECTS = \
@@ -90,22 +90,25 @@ gamma_OBJECTS = \
 # External object files for target gamma
 gamma_EXTERNAL_OBJECTS =
 
-tests/gamma.app/Contents/MacOS/gamma: tests/CMakeFiles/gamma.dir/gamma.c.o
-tests/gamma.app/Contents/MacOS/gamma: tests/CMakeFiles/gamma.dir/build.make
-tests/gamma.app/Contents/MacOS/gamma: src/libglfw3.a
-tests/gamma.app/Contents/MacOS/gamma: tests/CMakeFiles/gamma.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable gamma.app/Contents/MacOS/gamma"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gamma.dir/link.txt --verbose=$(VERBOSE)
+tests/gamma: tests/CMakeFiles/gamma.dir/gamma.c.o
+tests/gamma: tests/CMakeFiles/gamma.dir/build.make
+tests/gamma: src/libglfw3.a
+tests/gamma: /usr/lib/x86_64-linux-gnu/libm.so
+tests/gamma: /usr/lib/x86_64-linux-gnu/librt.a
+tests/gamma: /usr/lib/x86_64-linux-gnu/libm.so
+tests/gamma: tests/CMakeFiles/gamma.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable gamma"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gamma.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-tests/CMakeFiles/gamma.dir/build: tests/gamma.app/Contents/MacOS/gamma
+tests/CMakeFiles/gamma.dir/build: tests/gamma
 .PHONY : tests/CMakeFiles/gamma.dir/build
 
 tests/CMakeFiles/gamma.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/gamma.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/gamma.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/gamma.dir/clean
 
 tests/CMakeFiles/gamma.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/gamma.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/gamma.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/gamma.dir/depend
 

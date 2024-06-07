@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/windows.dir/depend.make
@@ -69,23 +69,19 @@ include examples/CMakeFiles/windows.dir/progress.make
 # Include the compile flags for this target's objects.
 include examples/CMakeFiles/windows.dir/flags.make
 
-examples/windows.app/Contents/Resources/glfw.icns: examples/glfw.icns
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Copying OS X content examples/windows.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/glfw.icns examples/windows.app/Contents/Resources/glfw.icns
-
 examples/CMakeFiles/windows.dir/windows.c.o: examples/CMakeFiles/windows.dir/flags.make
 examples/CMakeFiles/windows.dir/windows.c.o: examples/windows.c
 examples/CMakeFiles/windows.dir/windows.c.o: examples/CMakeFiles/windows.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/windows.dir/windows.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/windows.dir/windows.c.o -MF CMakeFiles/windows.dir/windows.c.o.d -o CMakeFiles/windows.dir/windows.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/windows.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/windows.dir/windows.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/windows.dir/windows.c.o -MF CMakeFiles/windows.dir/windows.c.o.d -o CMakeFiles/windows.dir/windows.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/windows.c
 
 examples/CMakeFiles/windows.dir/windows.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/windows.dir/windows.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/windows.c > CMakeFiles/windows.dir/windows.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/windows.c > CMakeFiles/windows.dir/windows.c.i
 
 examples/CMakeFiles/windows.dir/windows.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/windows.dir/windows.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/windows.c -o CMakeFiles/windows.dir/windows.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/windows.c -o CMakeFiles/windows.dir/windows.c.s
 
 # Object files for target windows
 windows_OBJECTS = \
@@ -94,23 +90,25 @@ windows_OBJECTS = \
 # External object files for target windows
 windows_EXTERNAL_OBJECTS =
 
-examples/windows.app/Contents/MacOS/windows: examples/CMakeFiles/windows.dir/windows.c.o
-examples/windows.app/Contents/MacOS/windows: examples/CMakeFiles/windows.dir/build.make
-examples/windows.app/Contents/MacOS/windows: src/libglfw3.a
-examples/windows.app/Contents/MacOS/windows: examples/CMakeFiles/windows.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable windows.app/Contents/MacOS/windows"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/windows.dir/link.txt --verbose=$(VERBOSE)
+examples/windows: examples/CMakeFiles/windows.dir/windows.c.o
+examples/windows: examples/CMakeFiles/windows.dir/build.make
+examples/windows: src/libglfw3.a
+examples/windows: /usr/lib/x86_64-linux-gnu/libm.so
+examples/windows: /usr/lib/x86_64-linux-gnu/librt.a
+examples/windows: /usr/lib/x86_64-linux-gnu/libm.so
+examples/windows: examples/CMakeFiles/windows.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable windows"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/windows.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-examples/CMakeFiles/windows.dir/build: examples/windows.app/Contents/MacOS/windows
-examples/CMakeFiles/windows.dir/build: examples/windows.app/Contents/Resources/glfw.icns
+examples/CMakeFiles/windows.dir/build: examples/windows
 .PHONY : examples/CMakeFiles/windows.dir/build
 
 examples/CMakeFiles/windows.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/windows.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/windows.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/windows.dir/clean
 
 examples/CMakeFiles/windows.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/windows.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/windows.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : examples/CMakeFiles/windows.dir/depend
 

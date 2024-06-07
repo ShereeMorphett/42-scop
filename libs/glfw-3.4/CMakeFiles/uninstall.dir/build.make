@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/uninstall.dir/compiler_depend.make
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	/Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -P /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/cmake_uninstall.cmake
+	/usr/bin/cmake -P /home/smorphett/Desktop/42-scop/libs/glfw-3.4/cmake_uninstall.cmake
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

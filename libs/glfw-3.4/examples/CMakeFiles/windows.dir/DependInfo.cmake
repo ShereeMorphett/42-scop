@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/windows.c" "examples/CMakeFiles/windows.dir/windows.c.o" "gcc" "examples/CMakeFiles/windows.dir/windows.c.o.d"
+  "/home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/windows.c" "examples/CMakeFiles/windows.dir/windows.c.o" "gcc" "examples/CMakeFiles/windows.dir/windows.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

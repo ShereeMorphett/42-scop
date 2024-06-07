@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/windows.dir/windows.c.o"
   "CMakeFiles/windows.dir/windows.c.o.d"
-  "windows.app/Contents/MacOS/windows"
-  "windows.app/Contents/Resources/glfw.icns"
+  "windows"
   "windows.pdb"
 )
 

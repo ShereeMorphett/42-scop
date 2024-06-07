@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/triangle-opengl.dir/depend.make
@@ -69,23 +69,19 @@ include examples/CMakeFiles/triangle-opengl.dir/progress.make
 # Include the compile flags for this target's objects.
 include examples/CMakeFiles/triangle-opengl.dir/flags.make
 
-examples/triangle-opengl.app/Contents/Resources/glfw.icns: examples/glfw.icns
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Copying OS X content examples/triangle-opengl.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/glfw.icns examples/triangle-opengl.app/Contents/Resources/glfw.icns
-
 examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o: examples/CMakeFiles/triangle-opengl.dir/flags.make
 examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o: examples/triangle-opengl.c
 examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o: examples/CMakeFiles/triangle-opengl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o -MF CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o.d -o CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o -MF CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o.d -o CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c
 
 examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/triangle-opengl.dir/triangle-opengl.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c > CMakeFiles/triangle-opengl.dir/triangle-opengl.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c > CMakeFiles/triangle-opengl.dir/triangle-opengl.c.i
 
 examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/triangle-opengl.dir/triangle-opengl.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c -o CMakeFiles/triangle-opengl.dir/triangle-opengl.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/triangle-opengl.c -o CMakeFiles/triangle-opengl.dir/triangle-opengl.c.s
 
 # Object files for target triangle-opengl
 triangle__opengl_OBJECTS = \
@@ -94,23 +90,25 @@ triangle__opengl_OBJECTS = \
 # External object files for target triangle-opengl
 triangle__opengl_EXTERNAL_OBJECTS =
 
-examples/triangle-opengl.app/Contents/MacOS/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o
-examples/triangle-opengl.app/Contents/MacOS/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/build.make
-examples/triangle-opengl.app/Contents/MacOS/triangle-opengl: src/libglfw3.a
-examples/triangle-opengl.app/Contents/MacOS/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable triangle-opengl.app/Contents/MacOS/triangle-opengl"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/triangle-opengl.dir/link.txt --verbose=$(VERBOSE)
+examples/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/triangle-opengl.c.o
+examples/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/build.make
+examples/triangle-opengl: src/libglfw3.a
+examples/triangle-opengl: /usr/lib/x86_64-linux-gnu/libm.so
+examples/triangle-opengl: /usr/lib/x86_64-linux-gnu/librt.a
+examples/triangle-opengl: /usr/lib/x86_64-linux-gnu/libm.so
+examples/triangle-opengl: examples/CMakeFiles/triangle-opengl.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable triangle-opengl"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/triangle-opengl.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-examples/CMakeFiles/triangle-opengl.dir/build: examples/triangle-opengl.app/Contents/MacOS/triangle-opengl
-examples/CMakeFiles/triangle-opengl.dir/build: examples/triangle-opengl.app/Contents/Resources/glfw.icns
+examples/CMakeFiles/triangle-opengl.dir/build: examples/triangle-opengl
 .PHONY : examples/CMakeFiles/triangle-opengl.dir/build
 
 examples/CMakeFiles/triangle-opengl.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/triangle-opengl.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/triangle-opengl.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/triangle-opengl.dir/clean
 
 examples/CMakeFiles/triangle-opengl.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/triangle-opengl.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/triangle-opengl.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : examples/CMakeFiles/triangle-opengl.dir/depend
 

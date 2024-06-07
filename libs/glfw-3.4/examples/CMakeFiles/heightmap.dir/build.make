@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/heightmap.dir/depend.make
@@ -69,23 +69,19 @@ include examples/CMakeFiles/heightmap.dir/progress.make
 # Include the compile flags for this target's objects.
 include examples/CMakeFiles/heightmap.dir/flags.make
 
-examples/heightmap.app/Contents/Resources/glfw.icns: examples/glfw.icns
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Copying OS X content examples/heightmap.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/glfw.icns examples/heightmap.app/Contents/Resources/glfw.icns
-
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: examples/CMakeFiles/heightmap.dir/flags.make
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: examples/heightmap.c
 examples/CMakeFiles/heightmap.dir/heightmap.c.o: examples/CMakeFiles/heightmap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/heightmap.dir/heightmap.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/heightmap.dir/heightmap.c.o -MF CMakeFiles/heightmap.dir/heightmap.c.o.d -o CMakeFiles/heightmap.dir/heightmap.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/heightmap.dir/heightmap.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/heightmap.dir/heightmap.c.o -MF CMakeFiles/heightmap.dir/heightmap.c.o.d -o CMakeFiles/heightmap.dir/heightmap.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c
 
 examples/CMakeFiles/heightmap.dir/heightmap.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/heightmap.dir/heightmap.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c > CMakeFiles/heightmap.dir/heightmap.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c > CMakeFiles/heightmap.dir/heightmap.c.i
 
 examples/CMakeFiles/heightmap.dir/heightmap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/heightmap.dir/heightmap.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c -o CMakeFiles/heightmap.dir/heightmap.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/heightmap.c -o CMakeFiles/heightmap.dir/heightmap.c.s
 
 # Object files for target heightmap
 heightmap_OBJECTS = \
@@ -94,23 +90,25 @@ heightmap_OBJECTS = \
 # External object files for target heightmap
 heightmap_EXTERNAL_OBJECTS =
 
-examples/heightmap.app/Contents/MacOS/heightmap: examples/CMakeFiles/heightmap.dir/heightmap.c.o
-examples/heightmap.app/Contents/MacOS/heightmap: examples/CMakeFiles/heightmap.dir/build.make
-examples/heightmap.app/Contents/MacOS/heightmap: src/libglfw3.a
-examples/heightmap.app/Contents/MacOS/heightmap: examples/CMakeFiles/heightmap.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable heightmap.app/Contents/MacOS/heightmap"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/heightmap.dir/link.txt --verbose=$(VERBOSE)
+examples/heightmap: examples/CMakeFiles/heightmap.dir/heightmap.c.o
+examples/heightmap: examples/CMakeFiles/heightmap.dir/build.make
+examples/heightmap: src/libglfw3.a
+examples/heightmap: /usr/lib/x86_64-linux-gnu/libm.so
+examples/heightmap: /usr/lib/x86_64-linux-gnu/librt.a
+examples/heightmap: /usr/lib/x86_64-linux-gnu/libm.so
+examples/heightmap: examples/CMakeFiles/heightmap.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable heightmap"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/heightmap.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-examples/CMakeFiles/heightmap.dir/build: examples/heightmap.app/Contents/MacOS/heightmap
-examples/CMakeFiles/heightmap.dir/build: examples/heightmap.app/Contents/Resources/glfw.icns
+examples/CMakeFiles/heightmap.dir/build: examples/heightmap
 .PHONY : examples/CMakeFiles/heightmap.dir/build
 
 examples/CMakeFiles/heightmap.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/heightmap.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/heightmap.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/heightmap.dir/clean
 
 examples/CMakeFiles/heightmap.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/heightmap.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/heightmap.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : examples/CMakeFiles/heightmap.dir/depend
 

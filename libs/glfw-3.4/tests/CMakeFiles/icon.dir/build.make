@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/icon.dir/depend.make
@@ -72,16 +72,16 @@ include tests/CMakeFiles/icon.dir/flags.make
 tests/CMakeFiles/icon.dir/icon.c.o: tests/CMakeFiles/icon.dir/flags.make
 tests/CMakeFiles/icon.dir/icon.c.o: tests/icon.c
 tests/CMakeFiles/icon.dir/icon.c.o: tests/CMakeFiles/icon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/icon.dir/icon.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/icon.dir/icon.c.o -MF CMakeFiles/icon.dir/icon.c.o.d -o CMakeFiles/icon.dir/icon.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/icon.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/icon.dir/icon.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/icon.dir/icon.c.o -MF CMakeFiles/icon.dir/icon.c.o.d -o CMakeFiles/icon.dir/icon.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/icon.c
 
 tests/CMakeFiles/icon.dir/icon.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/icon.dir/icon.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/icon.c > CMakeFiles/icon.dir/icon.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/icon.c > CMakeFiles/icon.dir/icon.c.i
 
 tests/CMakeFiles/icon.dir/icon.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/icon.dir/icon.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/icon.c -o CMakeFiles/icon.dir/icon.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/icon.c -o CMakeFiles/icon.dir/icon.c.s
 
 # Object files for target icon
 icon_OBJECTS = \
@@ -90,22 +90,25 @@ icon_OBJECTS = \
 # External object files for target icon
 icon_EXTERNAL_OBJECTS =
 
-tests/icon.app/Contents/MacOS/icon: tests/CMakeFiles/icon.dir/icon.c.o
-tests/icon.app/Contents/MacOS/icon: tests/CMakeFiles/icon.dir/build.make
-tests/icon.app/Contents/MacOS/icon: src/libglfw3.a
-tests/icon.app/Contents/MacOS/icon: tests/CMakeFiles/icon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable icon.app/Contents/MacOS/icon"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/icon.dir/link.txt --verbose=$(VERBOSE)
+tests/icon: tests/CMakeFiles/icon.dir/icon.c.o
+tests/icon: tests/CMakeFiles/icon.dir/build.make
+tests/icon: src/libglfw3.a
+tests/icon: /usr/lib/x86_64-linux-gnu/libm.so
+tests/icon: /usr/lib/x86_64-linux-gnu/librt.a
+tests/icon: /usr/lib/x86_64-linux-gnu/libm.so
+tests/icon: tests/CMakeFiles/icon.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable icon"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/icon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-tests/CMakeFiles/icon.dir/build: tests/icon.app/Contents/MacOS/icon
+tests/CMakeFiles/icon.dir/build: tests/icon
 .PHONY : tests/CMakeFiles/icon.dir/build
 
 tests/CMakeFiles/icon.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/icon.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/icon.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/icon.dir/clean
 
 tests/CMakeFiles/icon.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/icon.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/icon.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/icon.dir/depend
 

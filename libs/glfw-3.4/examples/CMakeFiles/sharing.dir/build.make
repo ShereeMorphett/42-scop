@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/sharing.dir/depend.make
@@ -69,23 +69,19 @@ include examples/CMakeFiles/sharing.dir/progress.make
 # Include the compile flags for this target's objects.
 include examples/CMakeFiles/sharing.dir/flags.make
 
-examples/sharing.app/Contents/Resources/glfw.icns: examples/glfw.icns
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Copying OS X content examples/sharing.app/Contents/Resources/glfw.icns"
-	$(CMAKE_COMMAND) -E copy /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/glfw.icns examples/sharing.app/Contents/Resources/glfw.icns
-
 examples/CMakeFiles/sharing.dir/sharing.c.o: examples/CMakeFiles/sharing.dir/flags.make
 examples/CMakeFiles/sharing.dir/sharing.c.o: examples/sharing.c
 examples/CMakeFiles/sharing.dir/sharing.c.o: examples/CMakeFiles/sharing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/sharing.dir/sharing.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/sharing.dir/sharing.c.o -MF CMakeFiles/sharing.dir/sharing.c.o.d -o CMakeFiles/sharing.dir/sharing.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object examples/CMakeFiles/sharing.dir/sharing.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT examples/CMakeFiles/sharing.dir/sharing.c.o -MF CMakeFiles/sharing.dir/sharing.c.o.d -o CMakeFiles/sharing.dir/sharing.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c
 
 examples/CMakeFiles/sharing.dir/sharing.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sharing.dir/sharing.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c > CMakeFiles/sharing.dir/sharing.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c > CMakeFiles/sharing.dir/sharing.c.i
 
 examples/CMakeFiles/sharing.dir/sharing.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sharing.dir/sharing.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c -o CMakeFiles/sharing.dir/sharing.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/sharing.c -o CMakeFiles/sharing.dir/sharing.c.s
 
 # Object files for target sharing
 sharing_OBJECTS = \
@@ -94,23 +90,25 @@ sharing_OBJECTS = \
 # External object files for target sharing
 sharing_EXTERNAL_OBJECTS =
 
-examples/sharing.app/Contents/MacOS/sharing: examples/CMakeFiles/sharing.dir/sharing.c.o
-examples/sharing.app/Contents/MacOS/sharing: examples/CMakeFiles/sharing.dir/build.make
-examples/sharing.app/Contents/MacOS/sharing: src/libglfw3.a
-examples/sharing.app/Contents/MacOS/sharing: examples/CMakeFiles/sharing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable sharing.app/Contents/MacOS/sharing"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sharing.dir/link.txt --verbose=$(VERBOSE)
+examples/sharing: examples/CMakeFiles/sharing.dir/sharing.c.o
+examples/sharing: examples/CMakeFiles/sharing.dir/build.make
+examples/sharing: src/libglfw3.a
+examples/sharing: /usr/lib/x86_64-linux-gnu/libm.so
+examples/sharing: /usr/lib/x86_64-linux-gnu/librt.a
+examples/sharing: /usr/lib/x86_64-linux-gnu/libm.so
+examples/sharing: examples/CMakeFiles/sharing.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable sharing"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sharing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-examples/CMakeFiles/sharing.dir/build: examples/sharing.app/Contents/MacOS/sharing
-examples/CMakeFiles/sharing.dir/build: examples/sharing.app/Contents/Resources/glfw.icns
+examples/CMakeFiles/sharing.dir/build: examples/sharing
 .PHONY : examples/CMakeFiles/sharing.dir/build
 
 examples/CMakeFiles/sharing.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/sharing.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples && $(CMAKE_COMMAND) -P CMakeFiles/sharing.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/sharing.dir/clean
 
 examples/CMakeFiles/sharing.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/sharing.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples /home/smorphett/Desktop/42-scop/libs/glfw-3.4/examples/CMakeFiles/sharing.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : examples/CMakeFiles/sharing.dir/depend
 

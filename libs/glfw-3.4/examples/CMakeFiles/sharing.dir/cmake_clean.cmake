@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sharing.dir/sharing.c.o"
   "CMakeFiles/sharing.dir/sharing.c.o.d"
-  "sharing.app/Contents/MacOS/sharing"
-  "sharing.app/Contents/Resources/glfw.icns"
+  "sharing"
   "sharing.pdb"
 )
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c" "tests/CMakeFiles/gamma.dir/gamma.c.o" "gcc" "tests/CMakeFiles/gamma.dir/gamma.c.o.d"
+  "/home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/gamma.c" "tests/CMakeFiles/gamma.dir/gamma.c.o" "gcc" "tests/CMakeFiles/gamma.dir/gamma.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

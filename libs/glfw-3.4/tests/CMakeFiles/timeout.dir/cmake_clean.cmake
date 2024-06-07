@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/timeout.dir/timeout.c.o"
   "CMakeFiles/timeout.dir/timeout.c.o.d"
-  "timeout.app/Contents/MacOS/timeout"
+  "timeout"
   "timeout.pdb"
 )
 

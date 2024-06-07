@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/glfw.dir/depend.make
@@ -69,299 +69,441 @@ include src/CMakeFiles/glfw.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/glfw.dir/flags.make
 
+src/wayland-client-protocol.h: deps/wayland/wayland.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating wayland-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/wayland.xml wayland-client-protocol.h
+
+src/wayland-client-protocol-code.h: deps/wayland/wayland.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating wayland-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/wayland.xml wayland-client-protocol-code.h
+
+src/viewporter-client-protocol.h: deps/wayland/viewporter.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating viewporter-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/viewporter.xml viewporter-client-protocol.h
+
+src/viewporter-client-protocol-code.h: deps/wayland/viewporter.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating viewporter-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/viewporter.xml viewporter-client-protocol-code.h
+
+src/xdg-shell-client-protocol.h: deps/wayland/xdg-shell.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating xdg-shell-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-shell.xml xdg-shell-client-protocol.h
+
+src/xdg-shell-client-protocol-code.h: deps/wayland/xdg-shell.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating xdg-shell-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-shell.xml xdg-shell-client-protocol-code.h
+
+src/idle-inhibit-unstable-v1-client-protocol.h: deps/wayland/idle-inhibit-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating idle-inhibit-unstable-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/idle-inhibit-unstable-v1.xml idle-inhibit-unstable-v1-client-protocol.h
+
+src/idle-inhibit-unstable-v1-client-protocol-code.h: deps/wayland/idle-inhibit-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating idle-inhibit-unstable-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/idle-inhibit-unstable-v1.xml idle-inhibit-unstable-v1-client-protocol-code.h
+
+src/pointer-constraints-unstable-v1-client-protocol.h: deps/wayland/pointer-constraints-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating pointer-constraints-unstable-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/pointer-constraints-unstable-v1.xml pointer-constraints-unstable-v1-client-protocol.h
+
+src/pointer-constraints-unstable-v1-client-protocol-code.h: deps/wayland/pointer-constraints-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Generating pointer-constraints-unstable-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/pointer-constraints-unstable-v1.xml pointer-constraints-unstable-v1-client-protocol-code.h
+
+src/relative-pointer-unstable-v1-client-protocol.h: deps/wayland/relative-pointer-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Generating relative-pointer-unstable-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/relative-pointer-unstable-v1.xml relative-pointer-unstable-v1-client-protocol.h
+
+src/relative-pointer-unstable-v1-client-protocol-code.h: deps/wayland/relative-pointer-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Generating relative-pointer-unstable-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/relative-pointer-unstable-v1.xml relative-pointer-unstable-v1-client-protocol-code.h
+
+src/fractional-scale-v1-client-protocol.h: deps/wayland/fractional-scale-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Generating fractional-scale-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/fractional-scale-v1.xml fractional-scale-v1-client-protocol.h
+
+src/fractional-scale-v1-client-protocol-code.h: deps/wayland/fractional-scale-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Generating fractional-scale-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/fractional-scale-v1.xml fractional-scale-v1-client-protocol-code.h
+
+src/xdg-activation-v1-client-protocol.h: deps/wayland/xdg-activation-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Generating xdg-activation-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-activation-v1.xml xdg-activation-v1-client-protocol.h
+
+src/xdg-activation-v1-client-protocol-code.h: deps/wayland/xdg-activation-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Generating xdg-activation-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-activation-v1.xml xdg-activation-v1-client-protocol-code.h
+
+src/xdg-decoration-unstable-v1-client-protocol.h: deps/wayland/xdg-decoration-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Generating xdg-decoration-unstable-v1-client-protocol.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner client-header /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-decoration-unstable-v1.xml xdg-decoration-unstable-v1-client-protocol.h
+
+src/xdg-decoration-unstable-v1-client-protocol-code.h: deps/wayland/xdg-decoration-unstable-v1.xml
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Generating xdg-decoration-unstable-v1-client-protocol-code.h"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/wayland-scanner private-code /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/wayland/xdg-decoration-unstable-v1.xml xdg-decoration-unstable-v1-client-protocol-code.h
+
 src/CMakeFiles/glfw.dir/context.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/context.c.o: src/context.c
 src/CMakeFiles/glfw.dir/context.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/glfw.dir/context.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/context.c.o -MF CMakeFiles/glfw.dir/context.c.o.d -o CMakeFiles/glfw.dir/context.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/glfw.dir/context.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/context.c.o -MF CMakeFiles/glfw.dir/context.c.o.d -o CMakeFiles/glfw.dir/context.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/context.c
 
 src/CMakeFiles/glfw.dir/context.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/context.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/context.c > CMakeFiles/glfw.dir/context.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/context.c > CMakeFiles/glfw.dir/context.c.i
 
 src/CMakeFiles/glfw.dir/context.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/context.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/context.c -o CMakeFiles/glfw.dir/context.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/context.c -o CMakeFiles/glfw.dir/context.c.s
 
 src/CMakeFiles/glfw.dir/init.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/init.c.o: src/init.c
 src/CMakeFiles/glfw.dir/init.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/glfw.dir/init.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/init.c.o -MF CMakeFiles/glfw.dir/init.c.o.d -o CMakeFiles/glfw.dir/init.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/glfw.dir/init.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/init.c.o -MF CMakeFiles/glfw.dir/init.c.o.d -o CMakeFiles/glfw.dir/init.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/init.c
 
 src/CMakeFiles/glfw.dir/init.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/init.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/init.c > CMakeFiles/glfw.dir/init.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/init.c > CMakeFiles/glfw.dir/init.c.i
 
 src/CMakeFiles/glfw.dir/init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/init.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/init.c -o CMakeFiles/glfw.dir/init.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/init.c -o CMakeFiles/glfw.dir/init.c.s
 
 src/CMakeFiles/glfw.dir/input.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/input.c.o: src/input.c
 src/CMakeFiles/glfw.dir/input.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/glfw.dir/input.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/input.c.o -MF CMakeFiles/glfw.dir/input.c.o.d -o CMakeFiles/glfw.dir/input.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/input.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object src/CMakeFiles/glfw.dir/input.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/input.c.o -MF CMakeFiles/glfw.dir/input.c.o.d -o CMakeFiles/glfw.dir/input.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/input.c
 
 src/CMakeFiles/glfw.dir/input.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/input.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/input.c > CMakeFiles/glfw.dir/input.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/input.c > CMakeFiles/glfw.dir/input.c.i
 
 src/CMakeFiles/glfw.dir/input.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/input.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/input.c -o CMakeFiles/glfw.dir/input.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/input.c -o CMakeFiles/glfw.dir/input.c.s
 
 src/CMakeFiles/glfw.dir/monitor.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/monitor.c.o: src/monitor.c
 src/CMakeFiles/glfw.dir/monitor.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/CMakeFiles/glfw.dir/monitor.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/monitor.c.o -MF CMakeFiles/glfw.dir/monitor.c.o.d -o CMakeFiles/glfw.dir/monitor.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/monitor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object src/CMakeFiles/glfw.dir/monitor.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/monitor.c.o -MF CMakeFiles/glfw.dir/monitor.c.o.d -o CMakeFiles/glfw.dir/monitor.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/monitor.c
 
 src/CMakeFiles/glfw.dir/monitor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/monitor.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/monitor.c > CMakeFiles/glfw.dir/monitor.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/monitor.c > CMakeFiles/glfw.dir/monitor.c.i
 
 src/CMakeFiles/glfw.dir/monitor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/monitor.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/monitor.c -o CMakeFiles/glfw.dir/monitor.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/monitor.c -o CMakeFiles/glfw.dir/monitor.c.s
 
 src/CMakeFiles/glfw.dir/platform.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/platform.c.o: src/platform.c
 src/CMakeFiles/glfw.dir/platform.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/glfw.dir/platform.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/platform.c.o -MF CMakeFiles/glfw.dir/platform.c.o.d -o CMakeFiles/glfw.dir/platform.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/platform.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object src/CMakeFiles/glfw.dir/platform.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/platform.c.o -MF CMakeFiles/glfw.dir/platform.c.o.d -o CMakeFiles/glfw.dir/platform.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/platform.c
 
 src/CMakeFiles/glfw.dir/platform.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/platform.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/platform.c > CMakeFiles/glfw.dir/platform.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/platform.c > CMakeFiles/glfw.dir/platform.c.i
 
 src/CMakeFiles/glfw.dir/platform.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/platform.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/platform.c -o CMakeFiles/glfw.dir/platform.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/platform.c -o CMakeFiles/glfw.dir/platform.c.s
 
 src/CMakeFiles/glfw.dir/vulkan.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/vulkan.c.o: src/vulkan.c
 src/CMakeFiles/glfw.dir/vulkan.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/glfw.dir/vulkan.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/vulkan.c.o -MF CMakeFiles/glfw.dir/vulkan.c.o.d -o CMakeFiles/glfw.dir/vulkan.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object src/CMakeFiles/glfw.dir/vulkan.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/vulkan.c.o -MF CMakeFiles/glfw.dir/vulkan.c.o.d -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c
 
 src/CMakeFiles/glfw.dir/vulkan.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/vulkan.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c > CMakeFiles/glfw.dir/vulkan.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c > CMakeFiles/glfw.dir/vulkan.c.i
 
 src/CMakeFiles/glfw.dir/vulkan.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/vulkan.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c -o CMakeFiles/glfw.dir/vulkan.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/vulkan.c -o CMakeFiles/glfw.dir/vulkan.c.s
 
 src/CMakeFiles/glfw.dir/window.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/window.c.o: src/window.c
 src/CMakeFiles/glfw.dir/window.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/CMakeFiles/glfw.dir/window.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/window.c.o -MF CMakeFiles/glfw.dir/window.c.o.d -o CMakeFiles/glfw.dir/window.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/window.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object src/CMakeFiles/glfw.dir/window.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/window.c.o -MF CMakeFiles/glfw.dir/window.c.o.d -o CMakeFiles/glfw.dir/window.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/window.c
 
 src/CMakeFiles/glfw.dir/window.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/window.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/window.c > CMakeFiles/glfw.dir/window.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/window.c > CMakeFiles/glfw.dir/window.c.i
 
 src/CMakeFiles/glfw.dir/window.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/window.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/window.c -o CMakeFiles/glfw.dir/window.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/window.c -o CMakeFiles/glfw.dir/window.c.s
 
 src/CMakeFiles/glfw.dir/egl_context.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/egl_context.c.o: src/egl_context.c
 src/CMakeFiles/glfw.dir/egl_context.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/CMakeFiles/glfw.dir/egl_context.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/egl_context.c.o -MF CMakeFiles/glfw.dir/egl_context.c.o.d -o CMakeFiles/glfw.dir/egl_context.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object src/CMakeFiles/glfw.dir/egl_context.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/egl_context.c.o -MF CMakeFiles/glfw.dir/egl_context.c.o.d -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c
 
 src/CMakeFiles/glfw.dir/egl_context.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/egl_context.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c > CMakeFiles/glfw.dir/egl_context.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c > CMakeFiles/glfw.dir/egl_context.c.i
 
 src/CMakeFiles/glfw.dir/egl_context.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/egl_context.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c -o CMakeFiles/glfw.dir/egl_context.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/egl_context.c -o CMakeFiles/glfw.dir/egl_context.c.s
 
 src/CMakeFiles/glfw.dir/osmesa_context.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/osmesa_context.c.o: src/osmesa_context.c
 src/CMakeFiles/glfw.dir/osmesa_context.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/glfw.dir/osmesa_context.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/osmesa_context.c.o -MF CMakeFiles/glfw.dir/osmesa_context.c.o.d -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object src/CMakeFiles/glfw.dir/osmesa_context.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/osmesa_context.c.o -MF CMakeFiles/glfw.dir/osmesa_context.c.o.d -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c
 
 src/CMakeFiles/glfw.dir/osmesa_context.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/osmesa_context.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c > CMakeFiles/glfw.dir/osmesa_context.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c > CMakeFiles/glfw.dir/osmesa_context.c.i
 
 src/CMakeFiles/glfw.dir/osmesa_context.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/osmesa_context.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c -o CMakeFiles/glfw.dir/osmesa_context.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/osmesa_context.c -o CMakeFiles/glfw.dir/osmesa_context.c.s
 
 src/CMakeFiles/glfw.dir/null_init.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/null_init.c.o: src/null_init.c
 src/CMakeFiles/glfw.dir/null_init.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/CMakeFiles/glfw.dir/null_init.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_init.c.o -MF CMakeFiles/glfw.dir/null_init.c.o.d -o CMakeFiles/glfw.dir/null_init.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object src/CMakeFiles/glfw.dir/null_init.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_init.c.o -MF CMakeFiles/glfw.dir/null_init.c.o.d -o CMakeFiles/glfw.dir/null_init.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_init.c
 
 src/CMakeFiles/glfw.dir/null_init.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/null_init.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_init.c > CMakeFiles/glfw.dir/null_init.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_init.c > CMakeFiles/glfw.dir/null_init.c.i
 
 src/CMakeFiles/glfw.dir/null_init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_init.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_init.c -o CMakeFiles/glfw.dir/null_init.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_init.c -o CMakeFiles/glfw.dir/null_init.c.s
 
 src/CMakeFiles/glfw.dir/null_monitor.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/null_monitor.c.o: src/null_monitor.c
 src/CMakeFiles/glfw.dir/null_monitor.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/CMakeFiles/glfw.dir/null_monitor.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_monitor.c.o -MF CMakeFiles/glfw.dir/null_monitor.c.o.d -o CMakeFiles/glfw.dir/null_monitor.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object src/CMakeFiles/glfw.dir/null_monitor.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_monitor.c.o -MF CMakeFiles/glfw.dir/null_monitor.c.o.d -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c
 
 src/CMakeFiles/glfw.dir/null_monitor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/null_monitor.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c > CMakeFiles/glfw.dir/null_monitor.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c > CMakeFiles/glfw.dir/null_monitor.c.i
 
 src/CMakeFiles/glfw.dir/null_monitor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_monitor.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c -o CMakeFiles/glfw.dir/null_monitor.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_monitor.c -o CMakeFiles/glfw.dir/null_monitor.c.s
 
 src/CMakeFiles/glfw.dir/null_window.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/null_window.c.o: src/null_window.c
 src/CMakeFiles/glfw.dir/null_window.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object src/CMakeFiles/glfw.dir/null_window.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_window.c.o -MF CMakeFiles/glfw.dir/null_window.c.o.d -o CMakeFiles/glfw.dir/null_window.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_window.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object src/CMakeFiles/glfw.dir/null_window.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_window.c.o -MF CMakeFiles/glfw.dir/null_window.c.o.d -o CMakeFiles/glfw.dir/null_window.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_window.c
 
 src/CMakeFiles/glfw.dir/null_window.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/null_window.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_window.c > CMakeFiles/glfw.dir/null_window.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_window.c > CMakeFiles/glfw.dir/null_window.c.i
 
 src/CMakeFiles/glfw.dir/null_window.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_window.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_window.c -o CMakeFiles/glfw.dir/null_window.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_window.c -o CMakeFiles/glfw.dir/null_window.c.s
 
 src/CMakeFiles/glfw.dir/null_joystick.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/null_joystick.c.o: src/null_joystick.c
 src/CMakeFiles/glfw.dir/null_joystick.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object src/CMakeFiles/glfw.dir/null_joystick.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_joystick.c.o -MF CMakeFiles/glfw.dir/null_joystick.c.o.d -o CMakeFiles/glfw.dir/null_joystick.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object src/CMakeFiles/glfw.dir/null_joystick.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/null_joystick.c.o -MF CMakeFiles/glfw.dir/null_joystick.c.o.d -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c
 
 src/CMakeFiles/glfw.dir/null_joystick.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/null_joystick.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c > CMakeFiles/glfw.dir/null_joystick.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c > CMakeFiles/glfw.dir/null_joystick.c.i
 
 src/CMakeFiles/glfw.dir/null_joystick.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/null_joystick.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c -o CMakeFiles/glfw.dir/null_joystick.c.s
-
-src/CMakeFiles/glfw.dir/cocoa_time.c.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/cocoa_time.c.o: src/cocoa_time.c
-src/CMakeFiles/glfw.dir/cocoa_time.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object src/CMakeFiles/glfw.dir/cocoa_time.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/cocoa_time.c.o -MF CMakeFiles/glfw.dir/cocoa_time.c.o.d -o CMakeFiles/glfw.dir/cocoa_time.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_time.c
-
-src/CMakeFiles/glfw.dir/cocoa_time.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/cocoa_time.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_time.c > CMakeFiles/glfw.dir/cocoa_time.c.i
-
-src/CMakeFiles/glfw.dir/cocoa_time.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/cocoa_time.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_time.c -o CMakeFiles/glfw.dir/cocoa_time.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/null_joystick.c -o CMakeFiles/glfw.dir/null_joystick.c.s
 
 src/CMakeFiles/glfw.dir/posix_module.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/posix_module.c.o: src/posix_module.c
 src/CMakeFiles/glfw.dir/posix_module.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object src/CMakeFiles/glfw.dir/posix_module.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_module.c.o -MF CMakeFiles/glfw.dir/posix_module.c.o.d -o CMakeFiles/glfw.dir/posix_module.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object src/CMakeFiles/glfw.dir/posix_module.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_module.c.o -MF CMakeFiles/glfw.dir/posix_module.c.o.d -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c
 
 src/CMakeFiles/glfw.dir/posix_module.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_module.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c > CMakeFiles/glfw.dir/posix_module.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c > CMakeFiles/glfw.dir/posix_module.c.i
 
 src/CMakeFiles/glfw.dir/posix_module.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_module.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c -o CMakeFiles/glfw.dir/posix_module.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_module.c -o CMakeFiles/glfw.dir/posix_module.c.s
+
+src/CMakeFiles/glfw.dir/posix_time.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/posix_time.c.o: src/posix_time.c
+src/CMakeFiles/glfw.dir/posix_time.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object src/CMakeFiles/glfw.dir/posix_time.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_time.c.o -MF CMakeFiles/glfw.dir/posix_time.c.o.d -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_time.c
+
+src/CMakeFiles/glfw.dir/posix_time.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_time.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_time.c > CMakeFiles/glfw.dir/posix_time.c.i
+
+src/CMakeFiles/glfw.dir/posix_time.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_time.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_time.c -o CMakeFiles/glfw.dir/posix_time.c.s
 
 src/CMakeFiles/glfw.dir/posix_thread.c.o: src/CMakeFiles/glfw.dir/flags.make
 src/CMakeFiles/glfw.dir/posix_thread.c.o: src/posix_thread.c
 src/CMakeFiles/glfw.dir/posix_thread.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object src/CMakeFiles/glfw.dir/posix_thread.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_thread.c.o -MF CMakeFiles/glfw.dir/posix_thread.c.o.d -o CMakeFiles/glfw.dir/posix_thread.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object src/CMakeFiles/glfw.dir/posix_thread.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_thread.c.o -MF CMakeFiles/glfw.dir/posix_thread.c.o.d -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c
 
 src/CMakeFiles/glfw.dir/posix_thread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_thread.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c > CMakeFiles/glfw.dir/posix_thread.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c > CMakeFiles/glfw.dir/posix_thread.c.i
 
 src/CMakeFiles/glfw.dir/posix_thread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_thread.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c -o CMakeFiles/glfw.dir/posix_thread.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_thread.c -o CMakeFiles/glfw.dir/posix_thread.c.s
 
-src/CMakeFiles/glfw.dir/cocoa_init.m.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/cocoa_init.m.o: src/cocoa_init.m
-src/CMakeFiles/glfw.dir/cocoa_init.m.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object src/CMakeFiles/glfw.dir/cocoa_init.m.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/cocoa_init.m.o -MF CMakeFiles/glfw.dir/cocoa_init.m.o.d -o CMakeFiles/glfw.dir/cocoa_init.m.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_init.m
+src/CMakeFiles/glfw.dir/x11_init.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/x11_init.c.o: src/x11_init.c
+src/CMakeFiles/glfw.dir/x11_init.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object src/CMakeFiles/glfw.dir/x11_init.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/x11_init.c.o -MF CMakeFiles/glfw.dir/x11_init.c.o.d -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_init.c
 
-src/CMakeFiles/glfw.dir/cocoa_init.m.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/cocoa_init.m.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_init.m > CMakeFiles/glfw.dir/cocoa_init.m.i
+src/CMakeFiles/glfw.dir/x11_init.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_init.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_init.c > CMakeFiles/glfw.dir/x11_init.c.i
 
-src/CMakeFiles/glfw.dir/cocoa_init.m.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/cocoa_init.m.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_init.m -o CMakeFiles/glfw.dir/cocoa_init.m.s
+src/CMakeFiles/glfw.dir/x11_init.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_init.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_init.c -o CMakeFiles/glfw.dir/x11_init.c.s
 
-src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: src/cocoa_joystick.m
-src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object src/CMakeFiles/glfw.dir/cocoa_joystick.m.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/cocoa_joystick.m.o -MF CMakeFiles/glfw.dir/cocoa_joystick.m.o.d -o CMakeFiles/glfw.dir/cocoa_joystick.m.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_joystick.m
+src/CMakeFiles/glfw.dir/x11_monitor.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/x11_monitor.c.o: src/x11_monitor.c
+src/CMakeFiles/glfw.dir/x11_monitor.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object src/CMakeFiles/glfw.dir/x11_monitor.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/x11_monitor.c.o -MF CMakeFiles/glfw.dir/x11_monitor.c.o.d -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_monitor.c
 
-src/CMakeFiles/glfw.dir/cocoa_joystick.m.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/cocoa_joystick.m.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_joystick.m > CMakeFiles/glfw.dir/cocoa_joystick.m.i
+src/CMakeFiles/glfw.dir/x11_monitor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_monitor.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_monitor.c > CMakeFiles/glfw.dir/x11_monitor.c.i
 
-src/CMakeFiles/glfw.dir/cocoa_joystick.m.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/cocoa_joystick.m.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_joystick.m -o CMakeFiles/glfw.dir/cocoa_joystick.m.s
+src/CMakeFiles/glfw.dir/x11_monitor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_monitor.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_monitor.c -o CMakeFiles/glfw.dir/x11_monitor.c.s
 
-src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: src/cocoa_monitor.m
-src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object src/CMakeFiles/glfw.dir/cocoa_monitor.m.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/cocoa_monitor.m.o -MF CMakeFiles/glfw.dir/cocoa_monitor.m.o.d -o CMakeFiles/glfw.dir/cocoa_monitor.m.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_monitor.m
+src/CMakeFiles/glfw.dir/x11_window.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/x11_window.c.o: src/x11_window.c
+src/CMakeFiles/glfw.dir/x11_window.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object src/CMakeFiles/glfw.dir/x11_window.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/x11_window.c.o -MF CMakeFiles/glfw.dir/x11_window.c.o.d -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_window.c
 
-src/CMakeFiles/glfw.dir/cocoa_monitor.m.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/cocoa_monitor.m.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_monitor.m > CMakeFiles/glfw.dir/cocoa_monitor.m.i
+src/CMakeFiles/glfw.dir/x11_window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/x11_window.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_window.c > CMakeFiles/glfw.dir/x11_window.c.i
 
-src/CMakeFiles/glfw.dir/cocoa_monitor.m.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/cocoa_monitor.m.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_monitor.m -o CMakeFiles/glfw.dir/cocoa_monitor.m.s
+src/CMakeFiles/glfw.dir/x11_window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/x11_window.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/x11_window.c -o CMakeFiles/glfw.dir/x11_window.c.s
 
-src/CMakeFiles/glfw.dir/cocoa_window.m.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/cocoa_window.m.o: src/cocoa_window.m
-src/CMakeFiles/glfw.dir/cocoa_window.m.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object src/CMakeFiles/glfw.dir/cocoa_window.m.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/cocoa_window.m.o -MF CMakeFiles/glfw.dir/cocoa_window.m.o.d -o CMakeFiles/glfw.dir/cocoa_window.m.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_window.m
+src/CMakeFiles/glfw.dir/xkb_unicode.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/xkb_unicode.c.o: src/xkb_unicode.c
+src/CMakeFiles/glfw.dir/xkb_unicode.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/xkb_unicode.c.o -MF CMakeFiles/glfw.dir/xkb_unicode.c.o.d -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/xkb_unicode.c
 
-src/CMakeFiles/glfw.dir/cocoa_window.m.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/cocoa_window.m.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_window.m > CMakeFiles/glfw.dir/cocoa_window.m.i
+src/CMakeFiles/glfw.dir/xkb_unicode.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/xkb_unicode.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/xkb_unicode.c > CMakeFiles/glfw.dir/xkb_unicode.c.i
 
-src/CMakeFiles/glfw.dir/cocoa_window.m.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/cocoa_window.m.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/cocoa_window.m -o CMakeFiles/glfw.dir/cocoa_window.m.s
+src/CMakeFiles/glfw.dir/xkb_unicode.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/xkb_unicode.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/xkb_unicode.c -o CMakeFiles/glfw.dir/xkb_unicode.c.s
 
-src/CMakeFiles/glfw.dir/nsgl_context.m.o: src/CMakeFiles/glfw.dir/flags.make
-src/CMakeFiles/glfw.dir/nsgl_context.m.o: src/nsgl_context.m
-src/CMakeFiles/glfw.dir/nsgl_context.m.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object src/CMakeFiles/glfw.dir/nsgl_context.m.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/nsgl_context.m.o -MF CMakeFiles/glfw.dir/nsgl_context.m.o.d -o CMakeFiles/glfw.dir/nsgl_context.m.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/nsgl_context.m
+src/CMakeFiles/glfw.dir/glx_context.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/glx_context.c.o: src/glx_context.c
+src/CMakeFiles/glfw.dir/glx_context.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object src/CMakeFiles/glfw.dir/glx_context.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/glx_context.c.o -MF CMakeFiles/glfw.dir/glx_context.c.o.d -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/glx_context.c
 
-src/CMakeFiles/glfw.dir/nsgl_context.m.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/nsgl_context.m.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/nsgl_context.m > CMakeFiles/glfw.dir/nsgl_context.m.i
+src/CMakeFiles/glfw.dir/glx_context.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/glx_context.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/glx_context.c > CMakeFiles/glfw.dir/glx_context.c.i
 
-src/CMakeFiles/glfw.dir/nsgl_context.m.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/nsgl_context.m.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/nsgl_context.m -o CMakeFiles/glfw.dir/nsgl_context.m.s
+src/CMakeFiles/glfw.dir/glx_context.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/glx_context.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/glx_context.c -o CMakeFiles/glfw.dir/glx_context.c.s
+
+src/CMakeFiles/glfw.dir/wl_init.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/wl_init.c.o: src/wl_init.c
+src/CMakeFiles/glfw.dir/wl_init.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object src/CMakeFiles/glfw.dir/wl_init.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/wl_init.c.o -MF CMakeFiles/glfw.dir/wl_init.c.o.d -o CMakeFiles/glfw.dir/wl_init.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_init.c
+
+src/CMakeFiles/glfw.dir/wl_init.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/wl_init.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_init.c > CMakeFiles/glfw.dir/wl_init.c.i
+
+src/CMakeFiles/glfw.dir/wl_init.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/wl_init.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_init.c -o CMakeFiles/glfw.dir/wl_init.c.s
+
+src/CMakeFiles/glfw.dir/wl_monitor.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/wl_monitor.c.o: src/wl_monitor.c
+src/CMakeFiles/glfw.dir/wl_monitor.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object src/CMakeFiles/glfw.dir/wl_monitor.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/wl_monitor.c.o -MF CMakeFiles/glfw.dir/wl_monitor.c.o.d -o CMakeFiles/glfw.dir/wl_monitor.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_monitor.c
+
+src/CMakeFiles/glfw.dir/wl_monitor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/wl_monitor.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_monitor.c > CMakeFiles/glfw.dir/wl_monitor.c.i
+
+src/CMakeFiles/glfw.dir/wl_monitor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/wl_monitor.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_monitor.c -o CMakeFiles/glfw.dir/wl_monitor.c.s
+
+src/CMakeFiles/glfw.dir/wl_window.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/wl_window.c.o: src/wl_window.c
+src/CMakeFiles/glfw.dir/wl_window.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object src/CMakeFiles/glfw.dir/wl_window.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/wl_window.c.o -MF CMakeFiles/glfw.dir/wl_window.c.o.d -o CMakeFiles/glfw.dir/wl_window.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_window.c
+
+src/CMakeFiles/glfw.dir/wl_window.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/wl_window.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_window.c > CMakeFiles/glfw.dir/wl_window.c.i
+
+src/CMakeFiles/glfw.dir/wl_window.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/wl_window.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/wl_window.c -o CMakeFiles/glfw.dir/wl_window.c.s
+
+src/CMakeFiles/glfw.dir/linux_joystick.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/linux_joystick.c.o: src/linux_joystick.c
+src/CMakeFiles/glfw.dir/linux_joystick.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object src/CMakeFiles/glfw.dir/linux_joystick.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/linux_joystick.c.o -MF CMakeFiles/glfw.dir/linux_joystick.c.o.d -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/linux_joystick.c
+
+src/CMakeFiles/glfw.dir/linux_joystick.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/linux_joystick.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/linux_joystick.c > CMakeFiles/glfw.dir/linux_joystick.c.i
+
+src/CMakeFiles/glfw.dir/linux_joystick.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/linux_joystick.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/linux_joystick.c -o CMakeFiles/glfw.dir/linux_joystick.c.s
+
+src/CMakeFiles/glfw.dir/posix_poll.c.o: src/CMakeFiles/glfw.dir/flags.make
+src/CMakeFiles/glfw.dir/posix_poll.c.o: src/posix_poll.c
+src/CMakeFiles/glfw.dir/posix_poll.c.o: src/CMakeFiles/glfw.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object src/CMakeFiles/glfw.dir/posix_poll.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/glfw.dir/posix_poll.c.o -MF CMakeFiles/glfw.dir/posix_poll.c.o.d -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_poll.c
+
+src/CMakeFiles/glfw.dir/posix_poll.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glfw.dir/posix_poll.c.i"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_poll.c > CMakeFiles/glfw.dir/posix_poll.c.i
+
+src/CMakeFiles/glfw.dir/posix_poll.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glfw.dir/posix_poll.c.s"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/posix_poll.c -o CMakeFiles/glfw.dir/posix_poll.c.s
 
 # Object files for target glfw
 glfw_OBJECTS = \
@@ -378,14 +520,19 @@ glfw_OBJECTS = \
 "CMakeFiles/glfw.dir/null_monitor.c.o" \
 "CMakeFiles/glfw.dir/null_window.c.o" \
 "CMakeFiles/glfw.dir/null_joystick.c.o" \
-"CMakeFiles/glfw.dir/cocoa_time.c.o" \
 "CMakeFiles/glfw.dir/posix_module.c.o" \
+"CMakeFiles/glfw.dir/posix_time.c.o" \
 "CMakeFiles/glfw.dir/posix_thread.c.o" \
-"CMakeFiles/glfw.dir/cocoa_init.m.o" \
-"CMakeFiles/glfw.dir/cocoa_joystick.m.o" \
-"CMakeFiles/glfw.dir/cocoa_monitor.m.o" \
-"CMakeFiles/glfw.dir/cocoa_window.m.o" \
-"CMakeFiles/glfw.dir/nsgl_context.m.o"
+"CMakeFiles/glfw.dir/x11_init.c.o" \
+"CMakeFiles/glfw.dir/x11_monitor.c.o" \
+"CMakeFiles/glfw.dir/x11_window.c.o" \
+"CMakeFiles/glfw.dir/xkb_unicode.c.o" \
+"CMakeFiles/glfw.dir/glx_context.c.o" \
+"CMakeFiles/glfw.dir/wl_init.c.o" \
+"CMakeFiles/glfw.dir/wl_monitor.c.o" \
+"CMakeFiles/glfw.dir/wl_window.c.o" \
+"CMakeFiles/glfw.dir/linux_joystick.c.o" \
+"CMakeFiles/glfw.dir/posix_poll.c.o"
 
 # External object files for target glfw
 glfw_EXTERNAL_OBJECTS =
@@ -403,29 +550,51 @@ src/libglfw3.a: src/CMakeFiles/glfw.dir/null_init.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/null_monitor.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/null_window.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/null_joystick.c.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/cocoa_time.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/posix_module.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/posix_time.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/posix_thread.c.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/cocoa_init.m.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/cocoa_joystick.m.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/cocoa_monitor.m.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/cocoa_window.m.o
-src/libglfw3.a: src/CMakeFiles/glfw.dir/nsgl_context.m.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/x11_init.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/x11_monitor.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/x11_window.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/xkb_unicode.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/glx_context.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/wl_init.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/wl_monitor.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/wl_window.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/linux_joystick.c.o
+src/libglfw3.a: src/CMakeFiles/glfw.dir/posix_poll.c.o
 src/libglfw3.a: src/CMakeFiles/glfw.dir/build.make
 src/libglfw3.a: src/CMakeFiles/glfw.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C static library libglfw3.a"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Linking C static library libglfw3.a"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean_target.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glfw.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/glfw.dir/build: src/libglfw3.a
 .PHONY : src/CMakeFiles/glfw.dir/build
 
 src/CMakeFiles/glfw.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src && $(CMAKE_COMMAND) -P CMakeFiles/glfw.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/glfw.dir/clean
 
-src/CMakeFiles/glfw.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/src/CMakeFiles/glfw.dir/DependInfo.cmake "--color=$(COLOR)"
+src/CMakeFiles/glfw.dir/depend: src/fractional-scale-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/fractional-scale-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/idle-inhibit-unstable-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/idle-inhibit-unstable-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/pointer-constraints-unstable-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/pointer-constraints-unstable-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/relative-pointer-unstable-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/relative-pointer-unstable-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/viewporter-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/viewporter-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/wayland-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/wayland-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-activation-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-activation-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-decoration-unstable-v1-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-decoration-unstable-v1-client-protocol.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-shell-client-protocol-code.h
+src/CMakeFiles/glfw.dir/depend: src/xdg-shell-client-protocol.h
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src /home/smorphett/Desktop/42-scop/libs/glfw-3.4/src/CMakeFiles/glfw.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : src/CMakeFiles/glfw.dir/depend
 

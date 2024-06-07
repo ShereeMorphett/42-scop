@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /Users/smorphet/.brew/Cellar/cmake/3.27.7/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_SOURCE_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/smorphet/Desktop/42-scop/libs/glfw-3.4
+CMAKE_BINARY_DIR = /home/smorphett/Desktop/42-scop/libs/glfw-3.4
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/clipboard.dir/depend.make
@@ -72,30 +72,30 @@ include tests/CMakeFiles/clipboard.dir/flags.make
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: tests/CMakeFiles/clipboard.dir/flags.make
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: tests/clipboard.c
 tests/CMakeFiles/clipboard.dir/clipboard.c.o: tests/CMakeFiles/clipboard.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/clipboard.dir/clipboard.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/clipboard.dir/clipboard.c.o -MF CMakeFiles/clipboard.dir/clipboard.c.o.d -o CMakeFiles/clipboard.dir/clipboard.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/clipboard.dir/clipboard.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/clipboard.dir/clipboard.c.o -MF CMakeFiles/clipboard.dir/clipboard.c.o.d -o CMakeFiles/clipboard.dir/clipboard.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c
 
 tests/CMakeFiles/clipboard.dir/clipboard.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/clipboard.dir/clipboard.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c > CMakeFiles/clipboard.dir/clipboard.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c > CMakeFiles/clipboard.dir/clipboard.c.i
 
 tests/CMakeFiles/clipboard.dir/clipboard.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/clipboard.dir/clipboard.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c -o CMakeFiles/clipboard.dir/clipboard.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/clipboard.c -o CMakeFiles/clipboard.dir/clipboard.c.s
 
 tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o: tests/CMakeFiles/clipboard.dir/flags.make
 tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o: deps/getopt.c
 tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o: tests/CMakeFiles/clipboard.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o -MF CMakeFiles/clipboard.dir/__/deps/getopt.c.o.d -o CMakeFiles/clipboard.dir/__/deps/getopt.c.o -c /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o -MF CMakeFiles/clipboard.dir/__/deps/getopt.c.o.d -o CMakeFiles/clipboard.dir/__/deps/getopt.c.o -c /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c
 
 tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/clipboard.dir/__/deps/getopt.c.i"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c > CMakeFiles/clipboard.dir/__/deps/getopt.c.i
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c > CMakeFiles/clipboard.dir/__/deps/getopt.c.i
 
 tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/clipboard.dir/__/deps/getopt.c.s"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c -o CMakeFiles/clipboard.dir/__/deps/getopt.c.s
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/smorphett/Desktop/42-scop/libs/glfw-3.4/deps/getopt.c -o CMakeFiles/clipboard.dir/__/deps/getopt.c.s
 
 # Object files for target clipboard
 clipboard_OBJECTS = \
@@ -109,19 +109,22 @@ tests/clipboard: tests/CMakeFiles/clipboard.dir/clipboard.c.o
 tests/clipboard: tests/CMakeFiles/clipboard.dir/__/deps/getopt.c.o
 tests/clipboard: tests/CMakeFiles/clipboard.dir/build.make
 tests/clipboard: src/libglfw3.a
+tests/clipboard: /usr/lib/x86_64-linux-gnu/libm.so
+tests/clipboard: /usr/lib/x86_64-linux-gnu/librt.a
+tests/clipboard: /usr/lib/x86_64-linux-gnu/libm.so
 tests/clipboard: tests/CMakeFiles/clipboard.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/smorphet/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable clipboard"
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clipboard.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/smorphett/Desktop/42-scop/libs/glfw-3.4/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable clipboard"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clipboard.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/clipboard.dir/build: tests/clipboard
 .PHONY : tests/CMakeFiles/clipboard.dir/build
 
 tests/CMakeFiles/clipboard.dir/clean:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/clipboard.dir/cmake_clean.cmake
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests && $(CMAKE_COMMAND) -P CMakeFiles/clipboard.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/clipboard.dir/clean
 
 tests/CMakeFiles/clipboard.dir/depend:
-	cd /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4 /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests /Users/smorphet/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/clipboard.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/smorphett/Desktop/42-scop/libs/glfw-3.4 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4 /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests /home/smorphett/Desktop/42-scop/libs/glfw-3.4/tests/CMakeFiles/clipboard.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : tests/CMakeFiles/clipboard.dir/depend
 
