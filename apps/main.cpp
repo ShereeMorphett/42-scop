@@ -1,52 +1,49 @@
-
-
 #include <iostream>
-// # include <glfw3.h>
-// # include <OpenGL/gl.h>
-
 #include <GLFW/glfw3.h>
 
+void display(GLFWwindow* window, int width, int height) {
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glLoadIdentity();
+    
+    // Your OpenGL rendering code here
+    glfwSwapBuffers(window);
 
 
+}
 
-
-int main()
-{
-    // Initialise GLFW
-    glfwWindowHint(GLFW_SAMPLES, 4); // 4x antialiasing
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // We want OpenGL 3.3
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // We don't want the old OpenGL 
-
-    // Open a window and create its OpenGL context
-    GLFWwindow* window; // (In the accompanying source code, this variable is global for simplicity)
-    window = glfwCreateWindow( 1024, 768, "Tutorial 01", NULL, NULL);
-    if( window == NULL ){
-        fprintf( stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n" ); // this is an issue as macs use intel
-        glfwTerminate();
+int main() {
+    // Initialize GLFW
+    if (!glfwInit()) {
+        std::cerr << "Failed to initialize GLFW" << std::endl;
         return -1;
     }
-    glfwMakeContextCurrent(window); // Initialize GLEW
 
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    // Create a windowed mode window and its OpenGL context
+    GLFWwindow* window = glfwCreateWindow(500, 500, "Your first OpenGL Window", NULL, NULL);
+    if (!window) {
+        glfwTerminate();
+        std::cerr << "Failed to create GLFW window" << std::endl;
+        return -1;
+    }
 
-    do{
-        // Clear the screen. It's not mentioned before Tutorial 02, but it can cause flickering, so it's there nonetheless.
-        // glClear( GL_COLOR_BUFFER_BIT ); // this is deprecated
+    // Make the window's context current
+    glfwMakeContextCurrent(window);
 
-        // Draw nothing, see you in tutorial 2 !
+    // Set the function for rendering
+    glfwSetFramebufferSizeCallback(window, display);
 
-        // Swap buffers
-        glfwSwapBuffers(window);
+    // Loop until the user closes the window
+    while (!glfwWindowShouldClose(window)) {
+        // Render here
+        display(window, 500, 500);
+
+        // Poll for and process events
         glfwPollEvents();
+    }
 
-    } // Check if the ESC key was pressed or the window was closed
-    while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
-        glfwWindowShouldClose(window) == 0 );
-//     std::cout << "it is doing the thing" << std::endl;
+    // Clean up GLFW
+    glfwTerminate();
 
     return 0;
 }
-
-
