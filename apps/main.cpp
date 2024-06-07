@@ -2,8 +2,9 @@
 
 #include <iostream>
 // # include <glfw3.h>
-# include <OpenGL/gl.h>
-#include <GLFW/glfw3.h>
+// # include <OpenGL/gl.h>
+#include "../../subprojects/glfw-3.3.10/include/GLFW/glfw3.h"
+
 
 
 
