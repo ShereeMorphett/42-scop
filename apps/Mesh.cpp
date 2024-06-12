@@ -3,17 +3,6 @@
 #include <sstream>
 #include <limits>
 
-
-
-
-
-// std::string object_name;
-
-// std::string material_file;
-// bool material_loaded;
-// std::vector<vec3<float>> points;
-// std::vector<vec3<int>> faces;
-
 std::string	TrimWs(std::string input)
 {
 	int start = 0;
@@ -34,8 +23,8 @@ std::vector<int> parse_faces(const std::string &line) {
     if (prefix != "f") {
         throw std::invalid_argument("Invalid prefix for faces");
     }
-    iss >> std::ws;
 
+    iss >> std::ws;
     std::vector<int> indices;
     long long index;
     while (iss >> index)
@@ -58,7 +47,6 @@ std::vector<int> parse_faces(const std::string &line) {
 Mesh::Mesh(std::ifstream& obj_file)
 {
     std::string line;
-
     while (obj_file.good())
     {
         getline(obj_file, line, '\n');
@@ -82,17 +70,16 @@ Mesh::Mesh(std::ifstream& obj_file)
                     smooth_shading = true;
                 break;
             case 'v':
-                points.push_back(parse_vec3<float>(line));
+                if (line[1] == 'n')
+                    normals.push_back(parse_vec3<float>(line));
+                else
+                    points.push_back(parse_vec3<float>(line));
                 break;
             case 'f':
                 faces.push_back(parse_faces(line));
                 break;
-
-
         }
     }
-    
-    
     std::cout << "Material file: " << material_file << std::endl;
     std::cout << "Object name: " << object_name << std::endl;
     std::cout << "smooth_shading: " << smooth_shading << std::endl;

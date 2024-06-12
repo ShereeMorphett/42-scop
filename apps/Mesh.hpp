@@ -17,6 +17,7 @@ class Mesh
         bool material_loaded;
 
         std::vector<vec3<float>> points;
+        std::vector<vec3<float>> normals;
         std::vector<std::vector<int>> faces;
 
     public:

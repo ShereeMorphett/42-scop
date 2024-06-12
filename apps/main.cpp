@@ -3,10 +3,12 @@
 #include <fstream>
 #include "colours.hpp"
 #include "Mesh.hpp"
-
 #include <unistd.h>
 
+
 void display(GLFWwindow* window, int width, int height) {
+    (void) width;
+    (void) height;
     glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
@@ -44,7 +46,7 @@ int main(int argc, char** argv) {
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n'; //TODO: may not need this
+            std::cerr << e.what() << '\n';
             std::cerr << BOLD(FRED("Invalid .obj file")) << std::endl;
             return 1;
         }
