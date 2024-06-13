@@ -19,6 +19,9 @@ class Mesh
         std::vector<vec3<float>> points;
         std::vector<vec3<float>> normals;
         std::vector<std::vector<int>> faces;
+        std::vector<vec3<float>> paramater_vertices; //TODO: make a vec2 class to allow for this format
+        std::vector<vec3<float>> texture_vertices;  
+
 
     public:
         Mesh(std::ifstream & obj_file);

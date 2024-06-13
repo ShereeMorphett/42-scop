@@ -2,9 +2,6 @@
 #include <sstream>
 #include <limits>
 
-
-
-
 template <typename T>
 struct vec3
 {
@@ -17,12 +14,11 @@ template <typename T>
 vec3<T> parse_vec3(const std::string &line) {
     std::istringstream iss(line);
     std::string prefix;
-    iss >> prefix;
-    if (prefix != "v") {
-        throw std::invalid_argument("Invalid prefix for vec3");
-    }
-    iss >> std::ws;
 
+    // std::cout << line << std::endl;
+
+    iss >> prefix;
+    iss >> std::ws;
     std::vector<T> values;
     T value;
 

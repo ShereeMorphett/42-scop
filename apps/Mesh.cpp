@@ -20,6 +20,7 @@ std::vector<int> parse_faces(const std::string &line) {
     std::istringstream iss(line);
     std::string prefix;
     iss >> prefix;
+
     if (prefix != "f") {
         throw std::invalid_argument("Invalid prefix for faces");
     }
@@ -34,15 +35,29 @@ std::vector<int> parse_faces(const std::string &line) {
         }
 
         char c;
-        if (iss.get(c) && !isspace(c)) {
+        if (iss.get(c) && !isspace(c) && c != '/') {
+            std::cout << "|" << c << "|" << std::endl; //TODO: remove before finishing
             throw std::invalid_argument("Invalid character detected in face indices");
         }
-
-        indices.push_back(static_cast<int>(index));
+        if (c != '/')
+            indices.push_back(static_cast<int>(index));
     }
 
     return indices;
 }
+
+// # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
+// vt 0.500 1 [0]
+// vt ...
+// ...
+// # List of vertex normals in (x,y,z) form; normals might not be unit vectors.
+// vn 0.707 0.000 0.707
+// vn ...
+// ...
+// # Parameter space vertices in (u, [v, w]) form; free form geometry statement (see below)
+// vp 0.310000 3.210000 2.100000
+// vp ..
+
 
 Mesh::Mesh(std::ifstream& obj_file)
 {
@@ -72,6 +87,14 @@ Mesh::Mesh(std::ifstream& obj_file)
             case 'v':
                 if (line[1] == 'n')
                     normals.push_back(parse_vec3<float>(line));
+                else if (line[1] == 't')
+                    // # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
+                    // vt 0.500 1 [0]
+                    texture_vertices.push_back(parse_vec3<float>(line)); //TODO: these need to be vec2 with own parser
+                else if (line[1] == 'p')
+                    // # Parameter space vertices in (u, [v, w]) form; free form geometry statement (see below)
+                    // vp 0.310000 3.210000 2.100000
+                    paramater_vertices.push_back(parse_vec3<float>(line)); //TODO: these need to be vec2 with own parser
                 else
                     points.push_back(parse_vec3<float>(line));
                 break;
