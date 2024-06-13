@@ -46,19 +46,6 @@ std::vector<int> parse_faces(const std::string &line) {
     return indices;
 }
 
-// # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
-// vt 0.500 1 [0]
-// vt ...
-// ...
-// # List of vertex normals in (x,y,z) form; normals might not be unit vectors.
-// vn 0.707 0.000 0.707
-// vn ...
-// ...
-// # Parameter space vertices in (u, [v, w]) form; free form geometry statement (see below)
-// vp 0.310000 3.210000 2.100000
-// vp ..
-
-
 Mesh::Mesh(std::ifstream& obj_file)
 {
     std::string line;
