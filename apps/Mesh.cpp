@@ -3,6 +3,13 @@
 #include <sstream>
 #include <limits>
 
+
+std::string Mesh::get_name()
+{
+    return object_name;
+}
+
+
 std::string	TrimWs(std::string input)
 {
 	int start = 0;
@@ -77,11 +84,11 @@ Mesh::Mesh(std::ifstream& obj_file)
                 else if (line[1] == 't')
                     // # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
                     // vt 0.500 1 [0]
-                    texture_vertices.push_back(parse_vec3<float>(line)); //TODO: these need to be vec2 with own parser
+                    texture_vertices.push_back(parse_vec2<float>(line)); //TODO: these need to be vec2 with own parser
                 else if (line[1] == 'p')
                     // # Parameter space vertices in (u, [v, w]) form; free form geometry statement (see below)
                     // vp 0.310000 3.210000 2.100000
-                    paramater_vertices.push_back(parse_vec3<float>(line)); //TODO: these need to be vec2 with own parser
+                    paramater_vertices.push_back(parse_vec2<float>(line)); //TODO: these need to be vec2 with own parser
                 else
                     points.push_back(parse_vec3<float>(line));
                 break;
