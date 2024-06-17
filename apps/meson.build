@@ -2,6 +2,6 @@
 glfw_dep = dependency('glfw3', required: true)
 gl_dep = dependency('gl', required: true)
 
-executable('scop', 'main.cpp', 'Mesh.cpp', 'render.cpp',
+executable('scop', 'main.cpp', 'Mesh.cpp', 'render.cpp', 'tools.cpp', 'Material.cpp',
     dependencies: [glfw_dep, gl_dep],
     install: true)

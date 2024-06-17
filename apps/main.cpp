@@ -5,7 +5,7 @@
 // #include "Mesh.hpp"
 #include "render.hpp"
 #include <unistd.h>
-#include <string.h>
+#include <string>
 
 std::string getCurrentPath() {
     char temp[FILENAME_MAX];
@@ -36,8 +36,8 @@ int main(int argc, char** argv) {
     {
         try
         {
-            Mesh object = Mesh(object_file);
-            render(object);//
+            Mesh object = Mesh(object_file, static_cast<std::string>(argv[1]));
+            render(object);
         }
         catch(const std::exception& e)
         {
@@ -51,16 +51,6 @@ int main(int argc, char** argv) {
         std::cerr << BOLD(FRED("Error opening file")) << std::endl;
         return 1;
     }
-
-
-
-
-
-
-
-
-
-
 
 
     return 0;

@@ -1,5 +1,7 @@
 
 #include "Mesh.hpp"
+#include "tools.hpp"
+
 #include <sstream>
 #include <limits>
 
@@ -7,20 +9,6 @@
 std::string Mesh::get_name()
 {
     return object_name;
-}
-
-
-std::string	TrimWs(std::string input)
-{
-	int start = 0;
-    int end = input.length();
-
-    while (start < end && std::isspace(input[start]))
-        ++start;
-    while (end > start && std::isspace(input[end - 1]))
-        --end;
-
-    return input.substr(start, end - start);
 }
 
 std::vector<int> parse_faces(const std::string &line) {
@@ -53,7 +41,8 @@ std::vector<int> parse_faces(const std::string &line) {
     return indices;
 }
 
-Mesh::Mesh(std::ifstream& obj_file)
+
+Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
 {
     std::string line;
     while (obj_file.good())
@@ -62,20 +51,41 @@ Mesh::Mesh(std::ifstream& obj_file)
         switch(line[0])
         {
             case 'o':
-                object_name = TrimWs(line.substr(1));
+                object_name = trim_ws(line.substr(1));
                 break;
             case '#':
                 break;
             case 'm':
                 if (line.substr(0, 6) == "mtllib")
-                    material_file = TrimWs(line.substr(6));
+                {
+                    std::string file_name = construct_new_file_path(obj_path, trim_ws(line.substr(6)));
+                    std::ifstream material_file(file_name);
+                    try
+                    {
+                        if (material_file.is_open())
+                        {
+                            mat = Material(material_file);
+                            material_loaded = true;
+                        }
+                        else
+                        {
+                            throw std::invalid_argument("Invalid .mtl file"); //TODO: IS this correct?
+                        }
+                    }
+                    catch(const std::exception& e)
+                    {
+                        std::cerr << e.what() << '\n';
+                    }
+                }
                 break;
             case 'u':
                 if (line.substr(0, 6) == "usemtl")
-                    material_name = TrimWs(line.substr(6));
+                {
+                    material_names.push_back(trim_ws(line.substr(6)));
+                }
                 break;
             case 's':
-                if (TrimWs(line.substr(1)) == "on")
+                if (trim_ws(line.substr(1)) == "on")
                     smooth_shading = true;
                 break;
             case 'v':
@@ -97,7 +107,8 @@ Mesh::Mesh(std::ifstream& obj_file)
                 break;
         }
     }
-    std::cout << "Material file: " << material_file << std::endl;
+
+    // std::cout << "Material file: " << mat.material_file << std::endl;
     std::cout << "Object name: " << object_name << std::endl;
     std::cout << "smooth_shading: " << smooth_shading << std::endl;
 
