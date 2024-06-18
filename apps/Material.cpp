@@ -1,66 +1,56 @@
-
-
 #include "Material.hpp"
-#include "tools.hpp"
+#include "tools.hpp"  // Include tools.hpp for trim_ws
+#include <iostream>
+#include <sstream>
 
+namespace scop {
 
-/*      std::map<std::string, vec3<float>> amb_colour; //Ka
-        std::map<std::string, vec3<float>> diffuse_colour;//Kd
-        std::map<std::string, vec3<float>> specular_colour;//Ks
-        std::map<std::string, vec3<float>> tansmission_filt_col; //Tf
-        std::map<std::string, float> specular_exponent;  //Ns
-        std::map<std::string, float> transparency; //sometimes discolve Tr/d
-        std::map<std::string, float> optical_density; // Ni
-        std::map<std::string, int> illumination_model; // Illum
-        std::vector<std::string> material_names;
-
-*/
-
-Material::Material(std::ifstream & material_file)
-{
-    std::string line;
-    std::string current_key;
-    while (material_file.good())
+    Material::Material(std::ifstream &material_file)
     {
-        getline(material_file, line, '\n');
-        switch(line[0])
+        std::string line;
+        std::string current_key;
+        while (material_file.good())
         {
-            //newmtl
-            case '#':
-                break;
-            case 'Ka':
-                break;
-            case 'Kd':
-                break;
-            case 'Ks':
-                break;
-            case 'Tf':
-                break;
-            case 'Ns':
-                break;
-            case 'Ni':
-                break;
-            case 'ne':
-                if (line.substr(0, 4) == "newmtl")
-                {
-                    current_key = trim_ws(line.substr(5));
-                    std::cout << current_key << std::endl;
-                    
-                    material_names.push_back(current_key);
-                }
-                break;
-            case 'Il':
-                if (line.substr(0, 4) == "Illum")
-                {
-
-                    // material_names.push_back(trim_ws(line.substr(6)));
-                }
-                break;
+            getline(material_file, line, '\n');
+            if (line.substr(0, 6) == "newmtl")
+            {
+                current_key = trim_ws(line.substr(6));
+                material_names.push_back(current_key);
+            }
+            else if (line.substr(0, 2) == "Ka")
+            {
+                amb_colour[current_key] = parse_vec3<float>(trim_ws(line.substr(2)));
+            }
+            else if (line.substr(0, 2) == "Kd")
+            {
+                diffuse_colour[current_key]= parse_vec3<float>(trim_ws(line.substr(2)));;
+            }
+            else if (line.substr(0, 2) == "Ks")
+            {
+                specular_colour[current_key] = parse_vec3<float>(trim_ws(line.substr(2)));
+            }
+            else if (line.substr(0, 2) == "Tf")
+            {
+                std::istringstream iss(trim_ws(line.substr(2)));
+                float x, y, z;
+                iss >> x >> y >> z;
+                tansmission_filt_col[current_key] = vec3<float>{x, y, z};
+            }
+            else if (line.substr(0, 2) == "Ns")
+            {
+                specular_exponent[current_key] = std::stof(trim_ws(line.substr(2)));
+            }
+            else if (line.substr(0, 2) == "Ni")
+            {
+                optical_density[current_key] = std::stof(trim_ws(line.substr(2)));
+            }
+            else if (line.substr(0, 5) == "illum")
+            {
+                illumination_model[current_key] = std::stoi(trim_ws(line.substr(5)));
+            }
         }
+
+        std::cout << "Material Library created with Material: " << std::endl;
     }
 
-    std::cout <<  FCYN("Material Library created with Material: ") << std::endl;
-    // PRINT TEXTURE
-};
-
-Material::Material(){};
+} 

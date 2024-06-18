@@ -6,6 +6,8 @@
 #include <limits>
 
 
+using namespace scop;
+
 std::string Mesh::get_name()
 {
     return object_name;
@@ -42,7 +44,7 @@ std::vector<int> parse_faces(const std::string &line) {
 }
 
 
-Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
+Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
 {
     std::string line;
     while (obj_file.good())
@@ -64,7 +66,7 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
                     {
                         if (material_file.is_open())
                         {
-                            mat = Material(material_file);
+                            mat = new Material(material_file);
                             material_loaded = true;
                         }
                         else
@@ -90,7 +92,7 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
                 break;
             case 'v':
                 if (line[1] == 'n')
-                    normals.push_back(parse_vec3<float>(line));
+                    normals.push_back(parse_vec3<float>(trim_ws(line.substr(2))));
                 else if (line[1] == 't')
                     // # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
                     // vt 0.500 1 [0]
@@ -100,7 +102,7 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
                     // vp 0.310000 3.210000 2.100000
                     paramater_vertices.push_back(parse_vec2<float>(line)); //TODO: these need to be vec2 with own parser
                 else
-                    points.push_back(parse_vec3<float>(line));
+                    points.push_back(parse_vec3<float>(trim_ws(line.substr(1))));
                 break;
             case 'f':
                 faces.push_back(parse_faces(line));
@@ -114,3 +116,9 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path)
 
     std::cout <<  FCYN("mesh created") << std::endl;
 };
+
+
+Mesh::~Mesh()
+{
+    delete mat; // Clean up allocated memory
+}

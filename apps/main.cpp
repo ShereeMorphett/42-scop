@@ -2,10 +2,13 @@
 #include <GLFW/glfw3.h>
 #include <fstream>
 #include "colours.hpp"
-// #include "Mesh.hpp"
+#include "Mesh.hpp"
 #include "render.hpp"
 #include <unistd.h>
 #include <string>
+
+using namespace scop;
+
 
 std::string getCurrentPath() {
     char temp[FILENAME_MAX];

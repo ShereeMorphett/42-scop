@@ -4,44 +4,44 @@
 #include <sstream>
 #include <limits>
 
-template <typename T>
-struct vec3
+
+
+namespace scop
 {
-    T x;
-    T y;
-    T z;
-};
 
-template <typename T>
-vec3<T> parse_vec3(const std::string &line) {
-    std::istringstream iss(line);
-    std::string prefix;
+    template <typename T>
+    struct vec3
+    {
+        T x;
+        T y;
+        T z;
+    };
 
-    // std::cout << line << std::endl;
+    template <typename T>
+    vec3<T> parse_vec3(const std::string &line) {
+        std::istringstream iss(line);
 
-    iss >> prefix;
-    iss >> std::ws;
-    std::vector<T> values;
-    T value;
+        std::vector<T> values;
+        T value;
 
-    while (iss >> value) {
-        char c;
-        if (iss.get(c) && !isspace(c)) {
-            throw std::invalid_argument("Invalid character detected in vec3 values");
+        while (iss >> value) {
+            char c;
+            if (iss.get(c) && !isspace(c)) {
+                throw std::invalid_argument("Invalid character detected in vec3 values");
+            }
+
+            values.push_back(value);
+        }
+        if (values.size() != 3) {
+            throw std::invalid_argument("Invalid number of values for vec3");
         }
 
-        values.push_back(value);
+        vec3<T> point;
+        point.x = values[0];
+        point.y = values[1];
+        point.z = values[2];
+
+        return point;
     }
 
-    if (values.size() != 3) {
-        throw std::invalid_argument("Invalid number of values for vec3");
-    }
-
-    vec3<T> point;
-    point.x = values[0];
-    point.y = values[1];
-    point.z = values[2];
-
-    return point;
-}
-
+};

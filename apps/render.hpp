@@ -4,5 +4,8 @@
 #include "Mesh.hpp"
 
 
-void display(GLFWwindow* window, int width, int height);
-void render(Mesh & object);
+namespace scop
+{
+    void display(GLFWwindow* window, int width, int height);
+    void render(Mesh & object);
+};

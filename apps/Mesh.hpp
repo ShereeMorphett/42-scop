@@ -12,24 +12,29 @@
 class Material;
 
 //https://en.wikipedia.org/wiki/Wavefront_.obj_file#:~:text=MTL%20File%20Format%20is%20a,OBJ%20files.
-class Mesh
+
+namespace scop
 {
-    private:
-        std::string object_name;
-        bool smooth_shading = false;
+    class Mesh
+    {
+        private:
+            std::string object_name;
+            bool smooth_shading = false;
 
-        std::vector<vec3<float>> points;
-        std::vector<vec3<float>> normals;
-        std::vector<std::vector<int>> faces;
-        std::vector<vec2<float>> paramater_vertices;
-        std::vector<vec2<float>> texture_vertices;
-        std::vector<std::string> material_names;
+            std::vector<vec3<float>> points;
+            std::vector<vec3<float>> normals;
+            std::vector<std::vector<int>> faces;
+            std::vector<vec2<float>> paramater_vertices;
+            std::vector<vec2<float>> texture_vertices;
+            std::vector<std::string> material_names;
 
-        bool material_loaded;
-        Material mat;
+            bool material_loaded;
+            Material* mat;
 
-    public:
-        std::string get_name();
-        Mesh(std::ifstream & obj_file, std::string obj_path);
+        public:
+            std::string get_name();
+            Mesh(std::ifstream & obj_file, std::string obj_path);
+            ~Mesh();
 
-};
+    };
+}
