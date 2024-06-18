@@ -13,6 +13,66 @@ std::string Mesh::get_name()
     return object_name;
 }
 
+
+unsigned int Mesh::get_num_indices()
+{
+    return num_indices;
+}
+
+
+
+void Mesh::set_num_indices(unsigned int size)
+{
+    num_indices = size;
+}
+
+void Mesh::set_num_vertices(unsigned int size)
+{
+    num_vertices = size;
+}
+
+std::vector<float> Mesh::get_interleaved_vertex_data()
+{
+    std::vector<float> data;
+    for (size_t i = 0; i < points.size(); ++i) {
+        // Add position
+        data.push_back(points[i].x);
+        data.push_back(points[i].y);
+        data.push_back(points[i].z);
+        // Add normal if available
+        if (i < normals.size()) {
+            data.push_back(normals[i].x);
+            data.push_back(normals[i].y);
+            data.push_back(normals[i].z);
+        } else {
+            data.push_back(0.0f); // Default normal x
+            data.push_back(0.0f); // Default normal y
+            data.push_back(0.0f); // Default normal z
+        }
+        // Add texture coordinate if available
+        if (i < texture_vertices.size()) {
+            data.push_back(texture_vertices[i].u);
+            data.push_back(texture_vertices[i].v);
+        } else {
+            data.push_back(0.0f); // Default texture x
+            data.push_back(0.0f); // Default texture y
+        }
+    }
+    return data;
+}
+
+
+std::vector<unsigned int> Mesh::get_index_data() {
+    std::vector<unsigned int> indices;
+    for (const auto& face : faces) {
+        for (int index : face) {
+            indices.push_back(index);
+        }
+    }
+    return indices;
+}
+
+
 std::vector<int> parse_faces(const std::string &line) {
     std::istringstream iss(line);
     std::string prefix;

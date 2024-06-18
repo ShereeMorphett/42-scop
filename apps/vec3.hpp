@@ -5,7 +5,6 @@
 #include <limits>
 
 
-
 namespace scop
 {
 

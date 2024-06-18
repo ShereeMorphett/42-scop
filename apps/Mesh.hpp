@@ -27,14 +27,24 @@ namespace scop
             std::vector<vec2<float>> paramater_vertices;
             std::vector<vec2<float>> texture_vertices;
             std::vector<std::string> material_names;
+            unsigned int num_indices;
+            unsigned int num_vertices;
 
             bool material_loaded;
             Material* mat;
 
         public:
             std::string get_name();
+            unsigned int get_num_indices();
             Mesh(std::ifstream & obj_file, std::string obj_path);
             ~Mesh();
+
+            void set_num_indices(unsigned int size);
+
+            void set_num_vertices(unsigned int size);
+
+            std::vector<float> get_interleaved_vertex_data();
+            std::vector<unsigned int> get_index_data();
 
     };
 }

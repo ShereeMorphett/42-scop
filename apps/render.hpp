@@ -6,6 +6,7 @@
 
 namespace scop
 {
-    void display(GLFWwindow* window, int width, int height);
+    void update_input(GLFWwindow* window);
+    void draw(GLFWwindow* window, int width, int height);
     void render(Mesh & object);
 };
