@@ -31,9 +31,7 @@ int main(int argc, char** argv) {
     }
 
     std::cout << argv[1] << std::endl;
-
     std::ifstream object_file(argv[1]);
-    
     if (object_file.is_open())
     {
         try
