@@ -1,5 +1,6 @@
+#include "glad/glad.h"
 #include <iostream>
-#include <GLFW/glfw3.h>
+
 #include <fstream>
 #include "colours.hpp"
 #include "Mesh.hpp"
@@ -19,8 +20,6 @@ std::string getCurrentPath() {
         return "";
     }
 }
-
-
 
 
 int main(int argc, char** argv) {

@@ -1,5 +1,6 @@
 #include "Material.hpp"
-#include "tools.hpp"  // Include tools.hpp for trim_ws
+#include "tools.hpp"
+#include "colours.hpp"
 #include <iostream>
 #include <sstream>
 
@@ -49,8 +50,12 @@ namespace scop {
                 illumination_model[current_key] = std::stoi(trim_ws(line.substr(5)));
             }
         }
+        std::cout <<  FCYN("Material Library created with Materials: ");
 
-        std::cout << "Material Library created with Material: " << std::endl;
+        for (auto name: material_names)
+        {
+            std::cout << name << std::endl;
+        }
     }
 
 } 

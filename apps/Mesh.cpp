@@ -19,8 +19,6 @@ unsigned int Mesh::get_num_indices()
     return num_indices;
 }
 
-
-
 void Mesh::set_num_indices(unsigned int size)
 {
     num_indices = size;
@@ -170,7 +168,6 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
         }
     }
 
-    // std::cout << "Material file: " << mat.material_file << std::endl;
     std::cout << "Object name: " << object_name << std::endl;
     std::cout << "smooth_shading: " << smooth_shading << std::endl;
 
