@@ -4,6 +4,7 @@
 
 
 namespace scop {
+//TODO: pick up from page 37
 
     void draw(Mesh &object, sf::Window & window) {
         // clear the buffers
@@ -62,7 +63,6 @@ namespace scop {
                     glViewport(0, 0, event.size.width, event.size.height);
                 }
             }
-
             draw(object, window);
         }
 
