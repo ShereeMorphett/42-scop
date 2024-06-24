@@ -35,6 +35,11 @@ namespace scop
 
         public:
             std::string get_name();
+            std::vector<std::vector<int>> get_faces();
+            std::vector<vec3<float>> get_points();
+            std::vector<vec3<float>> get_normals();
+
+
             unsigned int get_num_indices();
             Mesh(std::ifstream & obj_file, std::string obj_path);
             ~Mesh();

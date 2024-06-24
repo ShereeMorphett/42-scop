@@ -13,6 +13,17 @@ std::string Mesh::get_name()
     return object_name;
 }
 
+std::vector<vec3<float>> Mesh::get_normals()
+{
+    return normals;
+}
+
+
+std::vector<std::vector<int>> Mesh::get_faces()
+{
+    return faces;
+}
+
 
 unsigned int Mesh::get_num_indices()
 {
@@ -23,6 +34,12 @@ void Mesh::set_num_indices(unsigned int size)
 {
     num_indices = size;
 }
+
+std::vector<vec3<float>> Mesh::get_points()
+{
+    return points;
+}
+
 
 void Mesh::set_num_vertices(unsigned int size)
 {
@@ -154,11 +171,11 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
                 else if (line[1] == 't')
                     // # List of texture coordinates, in (u, [v, w]) coordinates, these will vary between 0 and 1. v, w are optional and default to 0.
                     // vt 0.500 1 [0]
-                    texture_vertices.push_back(parse_vec2<float>(line)); //TODO: these need to be vec2 with own parser
+                    texture_vertices.push_back(parse_vec2<float>(line));
                 else if (line[1] == 'p')
                     // # Parameter space vertices in (u, [v, w]) form; free form geometry statement (see below)
                     // vp 0.310000 3.210000 2.100000
-                    paramater_vertices.push_back(parse_vec2<float>(line)); //TODO: these need to be vec2 with own parser
+                    paramater_vertices.push_back(parse_vec2<float>(line));
                 else
                     points.push_back(parse_vec3<float>(trim_ws(line.substr(1))));
                 break;
