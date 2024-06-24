@@ -20,7 +20,6 @@ namespace scop
         private:
             std::string object_name;
             bool smooth_shading = false;
-
             std::vector<vec3<float>> points;
             std::vector<vec3<float>> normals;
             std::vector<std::vector<int>> faces;
@@ -29,6 +28,9 @@ namespace scop
             std::vector<std::string> material_names;
             unsigned int num_indices;
             unsigned int num_vertices;
+            // vec3<float> min;
+            // vec3<float> max;
+
 
             bool material_loaded;
             Material* mat;
@@ -38,6 +40,11 @@ namespace scop
             std::vector<std::vector<int>> get_faces();
             std::vector<vec3<float>> get_points();
             std::vector<vec3<float>> get_normals();
+            // vec3<float> get_min_vertice();
+            // vec3<float> get_max_vertice();
+
+
+
 
 
             unsigned int get_num_indices();

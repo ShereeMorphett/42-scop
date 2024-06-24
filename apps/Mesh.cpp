@@ -8,6 +8,20 @@
 
 using namespace scop;
 
+// vec3<float> Mesh::get_min_vertice()
+// {
+//     return min;
+// }
+
+
+// vec3<float> Mesh::get_max_vertice()
+// {
+//     return max;
+// }
+
+
+
+
 std::string Mesh::get_name()
 {
     return object_name;
