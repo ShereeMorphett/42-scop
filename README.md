@@ -1,2 +1,2 @@
 # 42-scop
-Mini project for OpenGl
+Mini project for OpenGL
