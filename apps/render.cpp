@@ -7,28 +7,7 @@
 #include "Mesh.hpp"
 
 namespace scop {
-
-    vec3<float> calculateBoundingBox(Mesh& object) {
-        std::vector<vec3<float>> vertices = object.get_points();
-        vec3<float> centroid = {0.0f, 0.0f, 0.0f};
-        
-        if (vertices.empty()) {
-            throw std::invalid_argument("Invalid number of vertices");
-        }
-
-        float size = vertices.size();
-        std::cout << "size: " << size << std::endl;
-        for (const auto& vertex : vertices) {
-            centroid.x += vertex.x;
-            centroid.y += vertex.y;
-            centroid.z += vertex.z;
-        }
-        centroid.x /= size;
-        centroid.y /= size;
-        centroid.z /= size;
-
-        return centroid;
-    }
+    bool camera_change = true;
 
     void setupProjection(int width, int height) {
         glMatrixMode(GL_PROJECTION);
@@ -43,38 +22,32 @@ namespace scop {
         glMatrixMode(GL_MODELVIEW);
     }
 
-    void setupView(vec3<float> eye, vec3<float> center, vec3<float> up) {
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
+{
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
-        vec3<float> forward = {center.x - eye.x, center.y - eye.y, center.z - eye.z};
-        float forwardNorm = sqrt(forward.x * forward.x + forward.y * forward.y + forward.z * forward.z);
-        forward = {forward.x / forwardNorm, forward.y / forwardNorm, forward.z / forwardNorm};
+    vec3<float> forward = center - eye;
+    forward = normalize(forward);
 
-        vec3<float> right = {
-            forward.y * up.z - forward.z * up.y,
-            forward.z * up.x - forward.x * up.z,
-            forward.x * up.y - forward.y * up.x
-        };
-        float rightNorm = sqrt(right.x * right.x + right.y * right.y + right.z * right.z);
-        right = {right.x / rightNorm, right.y / rightNorm, right.z / rightNorm};
+    vec3<float> right = cross(forward, up);
+    right = normalize(right);
 
-        up = {
-            right.y * forward.z - right.z * forward.y,
-            right.z * forward.x - right.x * forward.z,
-            right.x * forward.y - right.y * forward.x
-        };
+    up = cross(right, forward);
 
-        float viewMatrix[16] = {
-            right.x, up.x, -forward.x, 0.0f,
-            right.y, up.y, -forward.y, 0.0f,
-            right.z, up.z, -forward.z, 0.0f,
-            0.0f,    0.0f,  0.0f,      1.0f
-        };
+    float viewMatrix[16] = {
+        right.x, up.x, -forward.x, 0.0f,
+        right.y, up.y, -forward.y, 0.0f,
+        right.z, up.z, -forward.z, 0.0f,
+        0.0f,    0.0f,  0.0f,      1.0f
+    };
 
-        glMultMatrixf(viewMatrix);
-        glTranslatef(-eye.x, -eye.y, -eye.z);
-    }
+    glMultMatrixf(viewMatrix);
+    glTranslatef(-eye.x, -eye.y, -eye.z);
+
+}
+
+//TODO: impliment camera class from RT
 
     void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch) {
         const float moveSpeed = 0.1f;
@@ -82,40 +55,49 @@ namespace scop {
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             eye.z -= moveSpeed;
-            center.z -= moveSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
             eye.z += moveSpeed;
-            center.z += moveSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
             eye.x -= moveSpeed;
-            center.x -= moveSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
             eye.x += moveSpeed;
-            center.x += moveSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
             eye.y -= moveSpeed;
-            center.y -= moveSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
             eye.y += moveSpeed;
-            center.y += moveSpeed;
+            camera_change = true;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             pitch -= turnSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             pitch += turnSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             yaw -= turnSpeed;
+            camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             yaw += turnSpeed;
+            camera_change = true;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {  // Reset view to look at origin (0, 0, 0)
+            center = {0.0f, 0.0f, 0.0f};
+            eye = {0.0f, 0.0f, 15.0f};
+            camera_change = true;
         }
 
         if (pitch > 89.0f) pitch = 89.0f;
@@ -123,6 +105,12 @@ namespace scop {
 
         float radYaw = yaw * 3.14159f / 180.0f;
         float radPitch = pitch * 3.14159f / 180.0f;
+        if (camera_change)
+        {
+            std::cout << "Camera Position: (" << eye.x << ", " << eye.y << ", " << eye.z << ")" << std::endl;
+            std::cout << "pitch:" << pitch << "Yaw: " << yaw << std::endl;
+            camera_change = false;
+        }
 
         center.x = eye.x + cos(radYaw) * cos(radPitch);
         center.y = eye.y + sin(radPitch);
@@ -164,13 +152,15 @@ namespace scop {
         }
 
         setupProjection(window.getSize().x, window.getSize().y);
+        vec3<float> center = {0.0f, 0.0f, 0.0f};
+        vec3<float> eye = {0.0f, 0.0f, 15.0f};    
+        eye = center + eye; 
 
-        vec3<float> center = calculateBoundingBox(object); //TODO: this needs to be done with the centroid, add all the vertices together and use median
-        std::cout << "camera.x: " << center.x << " camera.y: " << center.y << " camera.z: " << center.z << std::endl;
-        vec3<float> eye = center;
-        vec3<float> up = {0.0f, 1.0f, 0.0f};
+        vec3<float> up = {0.0f, 1.0f, 0.0f};      
 
+        // Initialize camera yaw and pitch
         float yaw = 0.0f, pitch = 0.0f;
+
 
         GLuint VAO, VBO;
         glGenVertexArrays(1, &VAO);

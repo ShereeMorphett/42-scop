@@ -118,6 +118,64 @@ std::vector<int> parse_faces(const std::string &line) {
     return indices;
 }
 
+void Mesh::center_mesh()
+{
+
+        vec3<float> centroid = {0.0f, 0.0f, 0.0f};
+        for (const auto& vertex : points) {
+            centroid = centroid + vertex;
+        }
+        centroid = centroid / static_cast<float>(points.size());
+
+        for (auto& vertex : points) {
+            vertex = vertex - centroid;
+        }
+    }
+
+void Mesh::scale_mesh(){
+    // Calculate bounding box
+    vec3<float> min = {std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max()};
+    vec3<float> max = {std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest(), std::numeric_limits<float>::lowest()};
+
+    for (const auto& vertex : points) {
+        if (vertex.x < min.x) min.x = vertex.x;
+        if (vertex.y < min.y) min.y = vertex.y;
+        if (vertex.z < min.z) min.z = vertex.z;
+
+        if (vertex.x > max.x) max.x = vertex.x;
+        if (vertex.y > max.y) max.y = vertex.y;
+        if (vertex.z > max.z) max.z = vertex.z;
+    }
+
+    // Determine the largest span
+    vec3<float> span = max - min;
+    float largestSpan = std::max(span.x, std::max(span.y, span.z));
+
+    // Calculate the centroid
+    vec3<float> centroid = {0.0f, 0.0f, 0.0f};
+    float size = points.size();
+    std::cout << "size: " << size << std::endl;
+    for (const auto& vertex : points)
+    {
+        centroid = centroid + vertex;
+    }
+    centroid = centroid / size;
+    
+    // Scale and translate the coordinates
+    float desired_span = 10.0f; 
+    float scale_factor = desired_span / largestSpan;
+    for (auto& vertex : points) {
+        vertex = (vertex - centroid) * scale_factor;
+    }
+    center_mesh();
+}
+
+void Mesh::print_mesh()
+{
+    for (auto vertex : points) {
+        std::cout << vertex.x << "   " <<  vertex.y << "   " <<  vertex.z << "   " << std::endl;
+    }
+}
 
 Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
 {
@@ -187,7 +245,8 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
 
     std::cout << "Object name: " << object_name << std::endl;
     std::cout << "smooth_shading: " << smooth_shading << std::endl;
-    //scale mesh
+    scale_mesh();
+    print_mesh();
     std::cout <<  FCYN("mesh created") << std::endl;
 };
 

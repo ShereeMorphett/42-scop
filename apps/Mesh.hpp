@@ -37,13 +37,16 @@ namespace scop
             std::vector<std::vector<int>> get_faces();
             std::vector<vec3<float>> get_points();
             std::vector<vec3<float>> get_normals();
-
-
             unsigned int get_num_indices();
             Mesh(std::ifstream & obj_file, std::string obj_path);
             ~Mesh();
 
+            void scale_mesh();
+            void center_mesh();
+            void print_mesh();
+
             void set_num_indices(unsigned int size);
+
             void set_num_vertices(unsigned int size);
 
             std::vector<float> get_interleaved_vertex_data();
