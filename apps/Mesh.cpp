@@ -187,7 +187,7 @@ Mesh::Mesh(std::ifstream& obj_file, std::string obj_path) : mat(nullptr)
 
     std::cout << "Object name: " << object_name << std::endl;
     std::cout << "smooth_shading: " << smooth_shading << std::endl;
-
+    //scale mesh
     std::cout <<  FCYN("mesh created") << std::endl;
 };
 

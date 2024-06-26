@@ -1,5 +1,5 @@
+#include "glad/glad.h"
 #include <SFML/Window.hpp>
-#include <SFML/OpenGL.hpp>
 
 #include <vector>
 #include <iostream>
@@ -9,28 +9,25 @@
 namespace scop {
 
     vec3<float> calculateBoundingBox(Mesh& object) {
-
         std::vector<vec3<float>> vertices = object.get_points();
-        vec3<float> centeroid;
+        vec3<float> centroid = {0.0f, 0.0f, 0.0f};
         
-        if (vertices.empty())
-        {
-            throw std::invalid_argument("Invalid nuber of vertices");
-            return centeroid;
+        if (vertices.empty()) {
+            throw std::invalid_argument("Invalid number of vertices");
         }
 
         float size = vertices.size();
         std::cout << "size: " << size << std::endl;
         for (const auto& vertex : vertices) {
-            centeroid.x += vertex.x;
-            centeroid.y += vertex.y;
-            centeroid.z += vertex.z;
+            centroid.x += vertex.x;
+            centroid.y += vertex.y;
+            centroid.z += vertex.z;
         }
-        centeroid.x /= size;
-        centeroid.y /= size;
-        centeroid.z /= size;
+        centroid.x /= size;
+        centroid.y /= size;
+        centroid.z /= size;
 
-        return centeroid;
+        return centroid;
     }
 
     void setupProjection(int width, int height) {
@@ -39,15 +36,14 @@ namespace scop {
         float aspect = (float)width / (float)height;
         float near = 0.1f;
         float far = 100.0f;
-        float fovY = 100.0f;
+        float fovY = 45.5f;
         float fH = tan(fovY / 360.0f * 3.14159f) * near;
         float fW = fH * aspect;
         glFrustum(-fW, fW, -fH, fH, near, far);
         glMatrixMode(GL_MODELVIEW);
     }
 
-    void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
-    {
+    void setupView(vec3<float> eye, vec3<float> center, vec3<float> up) {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
@@ -80,8 +76,6 @@ namespace scop {
         glTranslatef(-eye.x, -eye.y, -eye.z);
     }
 
-
-
     void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch) {
         const float moveSpeed = 0.1f;
         const float turnSpeed = 1.0f;
@@ -102,7 +96,7 @@ namespace scop {
             eye.x += moveSpeed;
             center.x += moveSpeed;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {  //TODO: make these controls less shit
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
             eye.y -= moveSpeed;
             center.y -= moveSpeed;
         }
@@ -136,31 +130,24 @@ namespace scop {
         
     }
 
-    void draw(Mesh &object, sf::Window &window) {
+    void draw(Mesh &object, sf::Window &window, GLuint VAO) {
         glClearColor(0.0, 0.0, 0.0, 0.0);
         glClearDepth(1.0);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        glMatrixMode(GL_MODELVIEW);
+        glBindVertexArray(VAO);
 
-        std::vector<vec3<float>> vertices = object.get_points();
         std::vector<std::vector<int>> faces = object.get_faces();
 
-        float green = 0.0;
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
-        for (auto face : faces) {
-            // glBegin(GL_TRIANGLES);
+        for (const auto& face : faces) {
             glBegin(GL_POLYGON);
-
-            for (unsigned int index = 0; index < face.size(); index++) {
-                green += 0.1;
-                glColor3f(1.0, green, 1.0);
-                int vertexIndex = face[index];
-                glVertex3f(vertices[vertexIndex].x, vertices[vertexIndex].y, vertices[vertexIndex].z);
+            for (const auto& vertexIndex : face) {
+                glArrayElement(vertexIndex);
             }
             glEnd();
         }
+
+        glBindVertexArray(0);
 
         window.display();
     }
@@ -170,19 +157,35 @@ namespace scop {
         window.setVerticalSyncEnabled(true);
         window.setActive(true);
 
-        setupProjection(window.getSize().x, window.getSize().y);
+        // Initialize Glad using SFML loader function
+        if (!gladLoadGLLoader((GLADloadproc)sf::Context::getFunction)) {
+            std::cerr << "Failed to initialize GLAD" << std::endl;
+            return -1;
+        }
 
+        setupProjection(window.getSize().x, window.getSize().y);
 
         vec3<float> center = calculateBoundingBox(object); //TODO: this needs to be done with the centroid, add all the vertices together and use median
         std::cout << "camera.x: " << center.x << " camera.y: " << center.y << " camera.z: " << center.z << std::endl;
-        vec3<float> eye;
-        eye.x = center.x;
-        eye.y = center.y;
-        eye.z = center.z;
-        vec3<float> up = {};
-        up.y = 1.0f;
+        vec3<float> eye = center;
+        vec3<float> up = {0.0f, 1.0f, 0.0f};
 
         float yaw = 0.0f, pitch = 0.0f;
+
+        GLuint VAO, VBO;
+        glGenVertexArrays(1, &VAO);
+        glGenBuffers(1, &VBO);
+
+        glBindVertexArray(VAO);
+
+        std::vector<vec3<float>> vertices = object.get_points();
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec3<float>), vertices.data(), GL_STATIC_DRAW);
+
+        glVertexPointer(3, GL_FLOAT, sizeof(vec3<float>), (void*)0);
+        glEnableClientState(GL_VERTEX_ARRAY);
+
+        glBindVertexArray(0);
 
         bool running = true;
         while (running) {
@@ -195,12 +198,14 @@ namespace scop {
                     setupProjection(event.size.width, event.size.height);
                 }
             }
-
             handleInput(window, eye, center, yaw, pitch);
             setupView(eye, center, up);
 
-            draw(object, window);
+            draw(object, window, VAO);
         }
+
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
 
         return 0;
     }
