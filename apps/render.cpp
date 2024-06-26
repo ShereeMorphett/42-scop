@@ -8,33 +8,29 @@
 
 namespace scop {
 
-    struct BoundingBox {
-        vec3<float> min;
-        vec3<float> max;
-        vec3<float> center() const {
-            return {(min.x + max.x) / 2, (min.y + max.y) / 2, (min.z + max.z) / 2};
-        }
-        vec3<float> size() const {
-            return {max.x - min.x, max.y - min.y, max.z - min.z};
-        }
-    };
+    vec3<float> calculateBoundingBox(Mesh& object) {
 
-    BoundingBox calculateBoundingBox(Mesh& object) {
-        BoundingBox box;
         std::vector<vec3<float>> vertices = object.get_points();
-        if (vertices.empty()) return box;
-
-        box.min = box.max = vertices[0];
-        for (const auto& vertex : vertices) {
-            if (vertex.x < box.min.x) box.min.x = vertex.x;
-            if (vertex.y < box.min.y) box.min.y = vertex.y;
-            if (vertex.z < box.min.z) box.min.z = vertex.z;
-
-            if (vertex.x > box.max.x) box.max.x = vertex.x;
-            if (vertex.y > box.max.y) box.max.y = vertex.y;
-            if (vertex.z > box.max.z) box.max.z = vertex.z;
+        vec3<float> centeroid;
+        
+        if (vertices.empty())
+        {
+            throw std::invalid_argument("Invalid nuber of vertices");
+            return centeroid;
         }
-        return box;
+
+        float size = vertices.size();
+        std::cout << "size: " << size << std::endl;
+        for (const auto& vertex : vertices) {
+            centeroid.x += vertex.x;
+            centeroid.y += vertex.y;
+            centeroid.z += vertex.z;
+        }
+        centeroid.x /= size;
+        centeroid.y /= size;
+        centeroid.z /= size;
+
+        return centeroid;
     }
 
     void setupProjection(int width, int height) {
@@ -43,14 +39,15 @@ namespace scop {
         float aspect = (float)width / (float)height;
         float near = 0.1f;
         float far = 100.0f;
-        float fovY = 45.0f;
+        float fovY = 100.0f;
         float fH = tan(fovY / 360.0f * 3.14159f) * near;
         float fW = fH * aspect;
         glFrustum(-fW, fW, -fH, fH, near, far);
         glMatrixMode(GL_MODELVIEW);
     }
 
-    void setupView(vec3<float> eye, vec3<float> center, float upX, float upY, float upZ) {
+    void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
+    {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
@@ -58,7 +55,6 @@ namespace scop {
         float forwardNorm = sqrt(forward.x * forward.x + forward.y * forward.y + forward.z * forward.z);
         forward = {forward.x / forwardNorm, forward.y / forwardNorm, forward.z / forwardNorm};
 
-        vec3<float> up = {upX, upY, upZ};
         vec3<float> right = {
             forward.y * up.z - forward.z * up.y,
             forward.z * up.x - forward.x * up.z,
@@ -106,6 +102,14 @@ namespace scop {
             eye.x += moveSpeed;
             center.x += moveSpeed;
         }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {  //TODO: make these controls less shit
+            eye.y -= moveSpeed;
+            center.y -= moveSpeed;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+            eye.y += moveSpeed;
+            center.y += moveSpeed;
+        }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             pitch -= turnSpeed;
@@ -129,6 +133,7 @@ namespace scop {
         center.x = eye.x + cos(radYaw) * cos(radPitch);
         center.y = eye.y + sin(radPitch);
         center.z = eye.z + sin(radYaw) * cos(radPitch);
+        
     }
 
     void draw(Mesh &object, sf::Window &window) {
@@ -145,7 +150,9 @@ namespace scop {
         glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
         for (auto face : faces) {
+            // glBegin(GL_TRIANGLES);
             glBegin(GL_POLYGON);
+
             for (unsigned int index = 0; index < face.size(); index++) {
                 green += 0.1;
                 glColor3f(1.0, green, 1.0);
@@ -164,17 +171,17 @@ namespace scop {
         window.setActive(true);
 
         setupProjection(window.getSize().x, window.getSize().y);
-        BoundingBox box = calculateBoundingBox(object);
 
-        vec3<float> center = box.center();
-        vec3<float> size = box.size();
 
+        vec3<float> center = calculateBoundingBox(object); //TODO: this needs to be done with the centroid, add all the vertices together and use median
+        std::cout << "camera.x: " << center.x << " camera.y: " << center.y << " camera.z: " << center.z << std::endl;
         vec3<float> eye;
         eye.x = center.x;
         eye.y = center.y;
-        eye.z = center.z + std::max(size.x, std::max(size.y, size.z)) * 2.0f;
+        eye.z = center.z;
+        vec3<float> up = {};
+        up.y = 1.0f;
 
-        float upX = 0.0f, upY = 1.0f, upZ = 0.0f;
         float yaw = 0.0f, pitch = 0.0f;
 
         bool running = true;
@@ -190,7 +197,7 @@ namespace scop {
             }
 
             handleInput(window, eye, center, yaw, pitch);
-            setupView(eye, center, upX, upY, upZ);
+            setupView(eye, center, up);
 
             draw(object, window);
         }

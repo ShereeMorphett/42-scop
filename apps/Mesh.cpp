@@ -8,20 +8,6 @@
 
 using namespace scop;
 
-// vec3<float> Mesh::get_min_vertice()
-// {
-//     return min;
-// }
-
-
-// vec3<float> Mesh::get_max_vertice()
-// {
-//     return max;
-// }
-
-
-
-
 std::string Mesh::get_name()
 {
     return object_name;
@@ -64,7 +50,7 @@ std::vector<float> Mesh::get_interleaved_vertex_data()
 {
     std::vector<float> data;
     for (size_t i = 0; i < points.size(); ++i) {
-        // Add position
+        
         data.push_back(points[i].x);
         data.push_back(points[i].y);
         data.push_back(points[i].z);
@@ -78,7 +64,7 @@ std::vector<float> Mesh::get_interleaved_vertex_data()
             data.push_back(0.0f); // Default normal y
             data.push_back(0.0f); // Default normal z
         }
-        // Add texture coordinate if available
+
         if (i < texture_vertices.size()) {
             data.push_back(texture_vertices[i].u);
             data.push_back(texture_vertices[i].v);

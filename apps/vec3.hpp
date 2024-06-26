@@ -43,11 +43,6 @@ namespace scop
         return point;
     }
 
-    // template <typename T>
-    // vec3<float> vec3_get_bounding_box(vec3<T> min, vec3<T> max)
-    // {
-    //     return {(min.x + max.x) / 2, (min.y + max.y) / 2, (min.z + max.z) / 2};;
-    // }
 
     template <typename T>
     vec3<T> vec3_normalize(vec3<T> vector)
