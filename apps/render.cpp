@@ -9,7 +9,8 @@
 namespace scop {
     bool camera_change = true;
 
-    void setupProjection(int width, int height) {
+    void setupProjection(int width, int height)
+    {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         float aspect = (float)width / (float)height;
@@ -26,7 +27,7 @@ namespace scop {
     {
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        
+
         vec3<float> forward = center - eye;
         forward = normalize(forward);
 
@@ -46,7 +47,6 @@ namespace scop {
         glTranslatef(-eye.x, -eye.y, -eye.z);
     }
 
-//TODO: impliment camera class from RT
     void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch, float &zoom) {
         const float moveSpeed = 0.1f;
         const float turnSpeed = 1.0f;
