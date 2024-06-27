@@ -22,62 +22,44 @@ namespace scop {
         glMatrixMode(GL_MODELVIEW);
     }
 
-void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
-{
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
+    {
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        
+        vec3<float> forward = center - eye;
+        forward = normalize(forward);
 
-    vec3<float> forward = center - eye;
-    forward = normalize(forward);
+        vec3<float> right = cross(forward, up);
+        right = normalize(right);
 
-    vec3<float> right = cross(forward, up);
-    right = normalize(right);
+        up = cross(right, forward);
 
-    up = cross(right, forward);
+        float viewMatrix[16] = {
+            right.x, up.x, -forward.x, 0.0f,
+            right.y, up.y, -forward.y, 0.0f,
+            right.z, up.z, -forward.z, 0.0f,
+            0.0f,    0.0f,  0.0f,      1.0f
+        };
 
-    float viewMatrix[16] = {
-        right.x, up.x, -forward.x, 0.0f,
-        right.y, up.y, -forward.y, 0.0f,
-        right.z, up.z, -forward.z, 0.0f,
-        0.0f,    0.0f,  0.0f,      1.0f
-    };
-
-    glMultMatrixf(viewMatrix);
-    glTranslatef(-eye.x, -eye.y, -eye.z);
-
-}
+        glMultMatrixf(viewMatrix);
+        glTranslatef(-eye.x, -eye.y, -eye.z);
+    }
 
 //TODO: impliment camera class from RT
-
-    void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch) {
+    void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch, float &zoom) {
         const float moveSpeed = 0.1f;
         const float turnSpeed = 1.0f;
-
+     
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            eye.z -= moveSpeed;
+            zoom -= moveSpeed;
             camera_change = true;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            eye.z += moveSpeed;
+            zoom += moveSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            eye.x -= moveSpeed;
-            camera_change = true;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            eye.x += moveSpeed;
-            camera_change = true;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-            eye.y -= moveSpeed;
-            camera_change = true;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
-            eye.y += moveSpeed;
-            camera_change = true;
-        }
-
+        
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             pitch -= turnSpeed;
             camera_change = true;
@@ -103,7 +85,7 @@ void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
         if (pitch > 89.0f) pitch = 89.0f;
         if (pitch < -89.0f) pitch = -89.0f;
 
-        float radYaw = yaw * 3.14159f / 180.0f;
+        float radYaw = (yaw - 90) * 3.14159f / 180.0f;
         float radPitch = pitch * 3.14159f / 180.0f;
         if (camera_change)
         {
@@ -112,10 +94,10 @@ void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
             camera_change = false;
         }
 
-        center.x = eye.x + cos(radYaw) * cos(radPitch);
-        center.y = eye.y + sin(radPitch);
-        center.z = eye.z + sin(radYaw) * cos(radPitch);
-        
+        eye.x  = center.x - cos(radYaw) * cos(radPitch);
+        eye.y = center.y -  sin(radPitch);
+        eye.z = center.z - sin(radYaw) * cos(radPitch);
+        eye = eye * zoom;
     }
 
     void draw(Mesh &object, sf::Window &window, GLuint VAO) {
@@ -153,13 +135,12 @@ void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
 
         setupProjection(window.getSize().x, window.getSize().y);
         vec3<float> center = {0.0f, 0.0f, 0.0f};
-        vec3<float> eye = {0.0f, 0.0f, 15.0f};    
-        eye = center + eye; 
+        vec3<float> eye = {0.0f, 0.0f, 25.0f};
 
         vec3<float> up = {0.0f, 1.0f, 0.0f};      
 
         // Initialize camera yaw and pitch
-        float yaw = 0.0f, pitch = 0.0f;
+        float yaw = 0.0f, pitch = 0.0f, zoom = 25.0f;
 
 
         GLuint VAO, VBO;
@@ -179,6 +160,7 @@ void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
 
         bool running = true;
         while (running) {
+            setupView(eye, center, up);
             sf::Event event;
             while (window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed) {
@@ -188,8 +170,7 @@ void setupView(vec3<float> eye, vec3<float> center, vec3<float> up)
                     setupProjection(event.size.width, event.size.height);
                 }
             }
-            handleInput(window, eye, center, yaw, pitch);
-            setupView(eye, center, up);
+            handleInput(window, eye, center, yaw, pitch, zoom);
 
             draw(object, window, VAO);
         }

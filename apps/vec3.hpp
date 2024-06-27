@@ -45,6 +45,7 @@ namespace scop
         {
             return {lhs.x / rhs, lhs.y / rhs, lhs.z / rhs};
         }
+
     };
 
     template <typename T>
