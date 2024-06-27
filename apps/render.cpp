@@ -108,10 +108,11 @@ namespace scop {
         glBindVertexArray(VAO);
 
         std::vector<std::vector<int>> faces = object.get_faces();
-
+        //TODO: something is wrong here, hence the issues with meshs
         for (const auto& face : faces) {
             glBegin(GL_POLYGON);
-            for (const auto& vertexIndex : face) {
+            for (const auto& vertexIndex : face)
+            {
                 glArrayElement(vertexIndex);
             }
             glEnd();
