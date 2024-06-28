@@ -6,7 +6,9 @@
 #include <cmath>
 #include "Mesh.hpp"
 
+
 namespace scop {
+    bool OUTLINE_DRAW_STYLE = false;
     bool camera_change = true;
 
     void setupProjection(int width, int height)
@@ -46,59 +48,62 @@ namespace scop {
         glMultMatrixf(viewMatrix);
         glTranslatef(-eye.x, -eye.y, -eye.z);
     }
+void handleInput(const sf::Event &event, sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch, float &zoom) {
+    const float moveSpeed = 0.1f;
+    const float turnSpeed = 1.0f;
 
-    void handleInput(sf::Window &window, vec3<float>& eye, vec3<float>& center, float &yaw, float &pitch, float &zoom) {
-        const float moveSpeed = 0.1f;
-        const float turnSpeed = 1.0f;
-     
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+    if (event.type == sf::Event::KeyPressed) {
+        if (event.key.code == sf::Keyboard::W) {
             zoom -= moveSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        if (event.key.code == sf::Keyboard::S) {
             zoom += moveSpeed;
             camera_change = true;
         }
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        if (event.key.code == sf::Keyboard::Num1) {
+            OUTLINE_DRAW_STYLE = !OUTLINE_DRAW_STYLE;
+            std::cout << OUTLINE_DRAW_STYLE << std::endl;
+        }
+        if (event.key.code == sf::Keyboard::Up) {
             pitch -= turnSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        if (event.key.code == sf::Keyboard::Down) {
             pitch += turnSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        if (event.key.code == sf::Keyboard::Left) {
             yaw -= turnSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        if (event.key.code == sf::Keyboard::Right) {
             yaw += turnSpeed;
             camera_change = true;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {  // Reset view to look at origin (0, 0, 0)
+        if (event.key.code == sf::Keyboard::R) {  // Reset view to look at origin (0, 0, 0)
             center = {0.0f, 0.0f, 0.0f};
             eye = {0.0f, 0.0f, 15.0f};
             camera_change = true;
         }
-
-        if (pitch > 89.0f) pitch = 89.0f;
-        if (pitch < -89.0f) pitch = -89.0f;
-
-        float radYaw = (yaw - 90) * 3.14159f / 180.0f;
-        float radPitch = pitch * 3.14159f / 180.0f;
-        if (camera_change)
-        {
-            std::cout << "Camera Position: (" << eye.x << ", " << eye.y << ", " << eye.z << ")" << std::endl;
-            std::cout << "pitch:" << pitch << "Yaw: " << yaw << std::endl;
-            camera_change = false;
-        }
-
-        eye.x  = center.x - cos(radYaw) * cos(radPitch);
-        eye.y = center.y -  sin(radPitch);
-        eye.z = center.z - sin(radYaw) * cos(radPitch);
-        eye = eye * zoom;
     }
+
+    if (pitch > 89.0f) pitch = 89.0f;
+    if (pitch < -89.0f) pitch = -89.0f;
+
+    float radYaw = (yaw - 90) * 3.14159f / 180.0f;
+    float radPitch = pitch * 3.14159f / 180.0f;
+    if (camera_change) {
+        std::cout << "Camera Position: (" << eye.x << ", " << eye.y << ", " << eye.z << ")" << std::endl;
+        std::cout << "pitch:" << pitch << "Yaw: " << yaw << std::endl;
+        camera_change = false;
+    }
+
+    eye.x = center.x - cos(radYaw) * cos(radPitch);
+    eye.y = center.y - sin(radPitch);
+    eye.z = center.z - sin(radYaw) * cos(radPitch);
+    eye = eye * zoom;
+}
 
     void draw(Mesh &object, sf::Window &window, GLuint VAO) {
         glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -108,8 +113,13 @@ namespace scop {
         glBindVertexArray(VAO);
 
         std::vector<std::vector<int>> faces = object.get_faces();
+        if (OUTLINE_DRAW_STYLE)
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        if (!OUTLINE_DRAW_STYLE)
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         //TODO: something is wrong here, hence the issues with meshs
-        for (const auto& face : faces) {
+        for (const auto& face : faces)
+        {
             glBegin(GL_POLYGON);
             for (const auto& vertexIndex : face)
             {
@@ -169,9 +179,9 @@ namespace scop {
                 } else if (event.type == sf::Event::Resized) {
                     glViewport(0, 0, event.size.width, event.size.height);
                     setupProjection(event.size.width, event.size.height);
-                }
+                } else
+                    handleInput(event, window, eye, center, yaw, pitch, zoom);
             }
-            handleInput(window, eye, center, yaw, pitch, zoom);
 
             draw(object, window, VAO);
         }
